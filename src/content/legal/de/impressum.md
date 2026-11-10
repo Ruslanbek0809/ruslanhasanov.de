@@ -8,7 +8,9 @@ updated: November 2026
 ## Angaben gemäß § 5 DDG
 
 Ruslan Hasanov<br>
-[POSTAL ADDRESS: TO BE ADDED BY OWNER]
+An der Mühle 45<br>
+27570 Bremerhaven<br>
+Deutschland
 
 ## Kontakt
 

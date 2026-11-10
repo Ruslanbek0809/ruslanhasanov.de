@@ -10,7 +10,9 @@ updated: November 2026
 Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung (DSGVO):
 
 Ruslan Hasanov<br>
-[POSTAL ADDRESS: TO BE ADDED BY OWNER]<br>
+An der Mühle 45<br>
+27570 Bremerhaven<br>
+Deutschland<br>
 E-Mail: [ruslanbek0809@gmail.com](mailto:ruslanbek0809@gmail.com)
 
 ## 2. Das Wichtigste in Kürze

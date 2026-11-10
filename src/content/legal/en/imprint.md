@@ -10,7 +10,9 @@ This English version is provided for convenience. The German version (Impressum)
 ## Information pursuant to § 5 DDG
 
 Ruslan Hasanov<br>
-[POSTAL ADDRESS: TO BE ADDED BY OWNER]
+An der Mühle 45<br>
+27570 Bremerhaven<br>
+Germany
 
 ## Contact
 

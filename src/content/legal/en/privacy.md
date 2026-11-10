@@ -12,7 +12,9 @@ This English version is provided for convenience. The German version (Datenschut
 The controller for data processing on this website within the meaning of the General Data Protection Regulation (GDPR) is:
 
 Ruslan Hasanov<br>
-[POSTAL ADDRESS: TO BE ADDED BY OWNER]<br>
+An der Mühle 45<br>
+27570 Bremerhaven<br>
+Germany<br>
 Email: [ruslanbek0809@gmail.com](mailto:ruslanbek0809@gmail.com)
 
 ## 2. Summary
