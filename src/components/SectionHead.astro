@@ -1,0 +1,15 @@
+---
+interface Props {
+  /** Two-digit section number, e.g. "01". */
+  num: string;
+  eyebrow: string;
+  heading: string;
+  /** id of the h2, referenced by the section's aria-labelledby. */
+  id: string;
+}
+
+const { num, eyebrow, heading, id } = Astro.props;
+---
+
+<p class="eyebrow" aria-hidden="true"><b>{num}</b> / {eyebrow}</p>
+<h2 id={id}>{heading}</h2>

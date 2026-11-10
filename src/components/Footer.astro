@@ -1,0 +1,61 @@
+---
+import { site } from '../config/site';
+import { pagePath, type Locale } from '../i18n/routes';
+import { ui } from '../i18n/ui';
+import ExternalLink from './ExternalLink.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = ui[locale];
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav aria-label={t.footer.legalNav}>
+      <ul>
+        <li><a href={pagePath('imprint', locale)}>{t.footer.imprint}</a></li>
+        <li><a href={pagePath('privacy', locale)}>{t.footer.privacy}</a></li>
+        <li>© {year} {site.name}</li>
+      </ul>
+    </nav>
+    <nav aria-label={t.footer.socialNav}>
+      <ul>
+        <li><ExternalLink href={site.github} locale={locale} icon={false}>GitHub</ExternalLink></li>
+        <li><ExternalLink href={site.linkedin} locale={locale} icon={false}>LinkedIn</ExternalLink></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding: 1.5rem 0 2.5rem;
+    font: 400 0.75rem/1.6 var(--mono);
+    color: var(--muted);
+  }
+  .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem 2rem;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .site-footer :global(a) {
+    text-decoration: none;
+  }
+  .site-footer :global(a:hover) {
+    color: var(--ink);
+    text-decoration: underline;
+  }
+</style>

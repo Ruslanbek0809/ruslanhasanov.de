@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import profile from '../assets/profile.jpg';
+import type { Locale } from '../i18n/routes';
+import { ui } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  /** Rendered width in CSS, used for the responsive `sizes` hint. */
+  sizes: string;
+  class?: string;
+  loading?: 'eager' | 'lazy';
+}
+
+const { locale, sizes, class: className, loading = 'eager' } = Astro.props;
+---
+
+<figure class:list={['ph', className]}>
+  <Image
+    src={profile}
+    alt={ui[locale].photoAlt}
+    widths={[160, 320, profile.width]}
+    sizes={sizes}
+    loading={loading}
+    fetchpriority={loading === 'eager' ? 'high' : 'auto'}
+    format="webp"
+    quality={80}
+  />
+</figure>
+

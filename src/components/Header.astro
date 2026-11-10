@@ -1,0 +1,205 @@
+---
+import { homeAnchor, locales, pagePath, type Alternates, type Locale } from '../i18n/routes';
+import { ui } from '../i18n/ui';
+import { primaryCv } from '../lib/cv';
+import Icon from './Icon.astro';
+
+interface Props {
+  locale: Locale;
+  alternates: Alternates;
+}
+
+const { locale, alternates } = Astro.props;
+const t = ui[locale];
+const cv = primaryCv(locale);
+
+const navItems = [
+  { id: 'work', label: t.nav.work },
+  { id: 'about', label: t.nav.about },
+  { id: 'experience', label: t.nav.experience },
+  { id: 'contact', label: t.nav.contact },
+];
+---
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href={pagePath('home', locale)} aria-label={t.homeLink}>
+      <span class="mark" aria-hidden="true">RH</span><span>Ruslan Hasanov</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{t.menu}</button>
+    <nav class="nav" id="site-nav" aria-label={t.navLabel}>
+      <ul>
+        {navItems.map((item) => (
+          <li>
+            <a href={homeAnchor(item.id, locale)}>{item.label}</a>
+          </li>
+        ))}
+        {cv && (
+          <li class="nav-cv">
+            <a href={cv} download>
+              {t.downloadCv}
+            </a>
+          </li>
+        )}
+      </ul>
+    </nav>
+    <div class="lang" role="group" aria-label={t.languageLabel}>
+      {
+        locales.map((l, i) => (
+          <>
+            {i > 0 && <span aria-hidden="true">|</span>}
+            {l === locale ? (
+              <span aria-current="true">{l.toUpperCase()}</span>
+            ) : (
+              <a href={alternates[l]} lang={l} hreflang={l}>
+                {l.toUpperCase()}
+                <span class="visually-hidden"> ({t.switchTo})</span>
+              </a>
+            )}
+          </>
+        ))
+      }
+    </div>
+    {cv && (
+      <a class="btn btn--primary header-cv" href={cv} download>
+        <Icon name="download" />
+        {t.downloadCv}
+      </a>
+    )}
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const t = document.querySelector('.menu-toggle'), n = document.getElementById('site-nav');
+    if (!t || !n) return;
+    const set = (open) => { t.setAttribute('aria-expanded', String(open)); n.toggleAttribute('data-open', open); };
+    t.addEventListener('click', () => set(t.getAttribute('aria-expanded') !== 'true'));
+    n.addEventListener('click', (e) => { if (e.target.closest('a')) set(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && t.getAttribute('aria-expanded') === 'true') { set(false); t.focus(); } });
+  })();
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--bg);
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    min-height: var(--header-h);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    margin-right: auto;
+    font-weight: 600;
+  }
+  .mark {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--ink);
+    font: 500 0.8rem var(--mono);
+  }
+  .nav ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav a {
+    font: 500 0.8125rem var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: var(--muted);
+  }
+  .nav a:hover {
+    color: var(--ink);
+  }
+  .lang {
+    font: 500 0.8125rem var(--mono);
+    color: var(--muted);
+    display: flex;
+    gap: 0.35rem;
+  }
+  .lang [aria-current] {
+    color: var(--ink);
+  }
+  .lang a {
+    text-decoration: none;
+  }
+  .lang a:hover {
+    color: var(--ink);
+    text-decoration: underline;
+  }
+  .nav-cv {
+    display: none;
+  }
+  .menu-toggle {
+    display: none;
+    font: 500 0.8125rem var(--mono);
+    text-transform: uppercase;
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    padding: 0.5rem 0.7rem;
+    cursor: pointer;
+  }
+  @media (max-width: 880px) {
+    .menu-toggle {
+      display: inline-block;
+    }
+    .bar {
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+    }
+    .header-cv {
+      display: none;
+    }
+    .nav {
+      display: none;
+      flex-basis: 100%;
+      order: 3;
+    }
+    .nav[data-open] {
+      display: block;
+    }
+    .nav ul {
+      flex-direction: column;
+      gap: 0;
+    }
+    .nav li a {
+      display: block;
+      padding: 0.75rem 0;
+      border-top: 1px solid var(--line);
+      color: var(--ink);
+    }
+    .nav-cv {
+      display: list-item;
+    }
+  }
+  /* Without the toggle script the menu stays reachable: show it open. */
+  @media (max-width: 880px) and (scripting: none) {
+    .menu-toggle {
+      display: none;
+    }
+    .nav {
+      display: block;
+    }
+  }
+</style>

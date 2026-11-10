@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    rect { fill: #f3f5f7; stroke: #0e1621; }
+    text { fill: #0e1621; }
+    @media (prefers-color-scheme: dark) {
+      rect { fill: #0b1017; stroke: #dde5ee; }
+      text { fill: #dde5ee; }
+    }
+  </style>
+  <rect x="1" y="1" width="30" height="30" stroke-width="2" />
+  <text x="16" y="21" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="13" font-weight="500">RH</text>
+</svg>

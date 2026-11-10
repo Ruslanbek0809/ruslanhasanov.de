@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import type { Locale } from '../i18n/routes';
+import { ui } from '../i18n/ui';
+import Icon from './Icon.astro';
+
+interface Props extends HTMLAttributes<'a'> {
+  href: string;
+  locale: Locale;
+  /** Show the north-east arrow after the text. */
+  icon?: boolean;
+}
+
+const { href, locale, icon = true, ...rest } = Astro.props;
+---
+
+<a href={href} target="_blank" rel="noopener noreferrer" {...rest}><slot />{icon && <Icon name="external" />}<span class="visually-hidden"> ({ui[locale].opensInNewTab})</span></a>
