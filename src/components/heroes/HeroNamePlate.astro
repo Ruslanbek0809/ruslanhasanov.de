@@ -1,0 +1,74 @@
+---
+/** Hero 1 "Name plate": small greyscale avatar set with the name; facts card on the right. */
+import { home } from '../../data';
+import type { Locale } from '../../i18n/routes';
+import Photo from '../Photo.astro';
+import FactsCard from './FactsCard.astro';
+import HeroActions from './HeroActions.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { hero } = home[locale];
+---
+
+<section class="hero grid-paper" aria-labelledby="hero-name">
+  <div class="wrap layout stack">
+    <div class="lead flat">
+      <div class="o1">
+        <p class="status">{hero.availability}</p>
+        <div class="plate">
+          <Photo locale={locale} class="plate-photo" sizes="(max-width: 760px) 88px, 136px" />
+          <div>
+            <h1 id="hero-name">{hero.name}</h1>
+            <p class="role">{hero.role}</p>
+          </div>
+        </div>
+      </div>
+      <p class="pitch o3">{hero.pitch}</p>
+      <HeroActions locale={locale} class="o4" />
+    </div>
+    <FactsCard locale={locale} framed class="o2" />
+  </div>
+</section>
+
+<style>
+  /* Desktop grid; below 761px the shared .stack rules in global.css reorder the parts. */
+  @media (min-width: 761px) {
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 24rem);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: center;
+    }
+    .lead {
+      display: grid;
+      gap: 1.75rem;
+    }
+  }
+  .plate {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2.5vw, 1.75rem);
+  }
+  .plate :global(.plate-photo) {
+    width: clamp(5.5rem, 11vw, 8.5rem);
+    height: clamp(5.5rem, 11vw, 8.5rem);
+  }
+  .plate h1 {
+    margin-bottom: 0.6rem;
+  }
+  @media (max-width: 760px) {
+    .plate {
+      align-items: flex-start;
+    }
+    .plate h1 {
+      font-size: 2.25rem;
+    }
+    .plate .role {
+      font-size: 0.75rem;
+    }
+  }
+</style>

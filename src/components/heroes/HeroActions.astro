@@ -1,0 +1,21 @@
+---
+import type { Locale } from '../../i18n/routes';
+import { home } from '../../data';
+import { ui } from '../../i18n/ui';
+import { primaryCv } from '../../lib/cv';
+
+interface Props {
+  locale: Locale;
+  class?: string;
+}
+
+const { locale, class: className } = Astro.props;
+const { buttons } = home[locale].hero;
+const cv = primaryCv(locale);
+---
+
+<div class:list={['actions', className]}>
+  <a class="btn btn--primary" href="#work">{buttons.work}</a>
+  {cv && <a class="btn" href={cv} download>{ui[locale].downloadCv}</a>}
+  <a class="btn" href="#contact">{buttons.contact}</a>
+</div>

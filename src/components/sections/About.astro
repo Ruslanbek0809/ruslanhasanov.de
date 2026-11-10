@@ -1,0 +1,96 @@
+---
+import { showPhotoInAbout } from '../../config/site';
+import { home } from '../../data';
+import type { Locale } from '../../i18n/routes';
+import Photo from '../Photo.astro';
+import SectionHead from '../SectionHead.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { about } = home[locale];
+---
+
+<section class="block" id="about" aria-labelledby="h-about">
+  <div class="wrap">
+    {
+      showPhotoInAbout ? (
+        <div class="head-row">
+          <Photo locale={locale} class="about-photo" sizes="(max-width: 760px) 88px, 152px" loading="lazy" />
+          <div>
+            <SectionHead num="04" eyebrow={about.eyebrow} heading={about.heading} id="h-about" />
+          </div>
+        </div>
+      ) : (
+        <SectionHead num="04" eyebrow={about.eyebrow} heading={about.heading} id="h-about" />
+      )
+    }
+    <div class="about">
+      <div class="text">
+        {about.paragraphs.map((p) => <p>{p}</p>)}
+      </div>
+      <div class="now">
+        <p class="eyebrow">{about.now.label}</p>
+        {about.now.text.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .head-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.25rem 2rem;
+    margin-bottom: 1.75rem;
+  }
+  .head-row :global(.about-photo) {
+    width: 9.5rem;
+    height: 9.5rem;
+  }
+  .head-row :global(h2) {
+    margin-bottom: 0;
+  }
+  .about {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 2rem 4rem;
+    align-items: start;
+  }
+  .text p {
+    margin: 0 0 1rem;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    max-width: 40rem;
+  }
+  .text p:last-child {
+    margin-bottom: 0;
+  }
+  .now {
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    background: var(--surface);
+    padding: 1rem 1.25rem;
+  }
+  .now p {
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+  .now p + p {
+    margin-top: 0.5rem;
+  }
+  @media (max-width: 760px) {
+    .about {
+      grid-template-columns: 1fr;
+    }
+    .head-row {
+      align-items: center;
+    }
+    .head-row :global(.about-photo) {
+      width: 5.5rem;
+      height: 5.5rem;
+    }
+  }
+</style>

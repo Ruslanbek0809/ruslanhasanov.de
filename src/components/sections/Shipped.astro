@@ -1,0 +1,134 @@
+---
+import { home } from '../../data';
+import type { Locale } from '../../i18n/routes';
+import ExternalLink from '../ExternalLink.astro';
+import SectionHead from '../SectionHead.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { shipped } = home[locale];
+---
+
+<section class="block" id="shipped" aria-labelledby="h-shipped">
+  <div class="wrap">
+    <SectionHead num="03" eyebrow={shipped.eyebrow} heading={shipped.heading} id="h-shipped" />
+    <p class="intro">{shipped.intro}</p>
+    <ul class="rows">
+      {
+        shipped.jobs.map((job) => (
+          <li>
+            <span class="who">
+              <strong>{job.name}</strong>
+              <span class="sub">{job.role}</span>
+            </span>
+            <span class="where">
+              {job.period}
+              {job.place && (
+                <>
+                  <br />
+                  {job.place}
+                </>
+              )}
+            </span>
+            <p>{job.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h3 class="os-head">{shipped.openSourceHeading}</h3>
+    <ul class="rows rows--os">
+      {
+        shipped.repos.map((repo) => (
+          <li>
+            <span class="who">
+              <ExternalLink href={repo.url} locale={locale}>{repo.name}</ExternalLink>
+            </span>
+            <span class="where">
+              {repo.lang}
+              {repo.stars && (
+                <>
+                  <br />
+                  {repo.stars}
+                </>
+              )}
+            </span>
+            <p>{repo.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .intro {
+    font-size: 1.0625rem;
+    max-width: 44rem;
+    margin: -0.75rem 0 1.75rem;
+  }
+  .rows {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--ink);
+  }
+  .rows li {
+    display: grid;
+    grid-template-columns: 14rem 12rem minmax(0, 1fr);
+    gap: 0.25rem 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .who strong {
+    display: block;
+    font-weight: 600;
+  }
+  .sub {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+  .where {
+    font: 400 0.8125rem/1.8 var(--mono);
+    color: var(--muted);
+  }
+  .rows p {
+    margin: 0;
+  }
+  .os-head {
+    margin: 2.5rem 0 1rem;
+  }
+  .rows--os li {
+    padding: 0.8rem 0;
+  }
+  .rows--os :global(a) {
+    font: 500 0.9375rem var(--mono);
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    overflow-wrap: anywhere;
+  }
+  .rows--os :global(a:hover) {
+    text-decoration: underline;
+  }
+  @media (max-width: 960px) {
+    .rows li {
+      grid-template-columns: 12rem minmax(0, 1fr);
+    }
+    .rows p {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 560px) {
+    .rows li {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,55 @@
+---
+import { HERO_VARIANT, site } from '../config/site';
+import { home } from '../data';
+import { absoluteUrl, pageAlternates, pagePath, type Locale } from '../i18n/routes';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroNamePlate from './heroes/HeroNamePlate.astro';
+import HeroReadout from './heroes/HeroReadout.astro';
+import HeroSpecStrip from './heroes/HeroSpecStrip.astro';
+import About from './sections/About.astro';
+import Contact from './sections/Contact.astro';
+import Experience from './sections/Experience.astro';
+import FeaturedWork from './sections/FeaturedWork.astro';
+import Highlights from './sections/Highlights.astro';
+import Shipped from './sections/Shipped.astro';
+import Skills from './sections/Skills.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const content = home[locale];
+
+const heroes = { nameplate: HeroNamePlate, readout: HeroReadout, specstrip: HeroSpecStrip };
+const Hero = heroes[HERO_VARIANT];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  jobTitle: content.person.jobTitle,
+  url: absoluteUrl(pagePath('home', locale)),
+  sameAs: [site.github, site.linkedin],
+  alumniOf: { '@type': 'CollegeOrUniversity', name: content.person.almaMater },
+  address: { '@type': 'PostalAddress', addressLocality: site.locality },
+};
+---
+
+<BaseLayout
+  locale={locale}
+  title={content.seo.title}
+  description={content.seo.description}
+  alternates={pageAlternates('home')}
+  ogType="profile"
+  jsonLd={jsonLd}
+>
+  <Hero locale={locale} />
+  <Highlights locale={locale} />
+  <FeaturedWork locale={locale} />
+  <Shipped locale={locale} />
+  <About locale={locale} />
+  <Experience locale={locale} />
+  <Skills locale={locale} />
+  <Contact locale={locale} />
+</BaseLayout>

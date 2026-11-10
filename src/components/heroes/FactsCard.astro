@@ -1,0 +1,136 @@
+---
+import { site } from '../../config/site';
+import { home } from '../../data';
+import type { Locale } from '../../i18n/routes';
+import ExternalLink from '../ExternalLink.astro';
+
+interface Props {
+  locale: Locale;
+  /** Card header with title and as-of date, plus profile links in the footer (Hero 1). */
+  framed?: boolean;
+  class?: string;
+}
+
+const { locale, framed = false, class: className } = Astro.props;
+const { facts } = home[locale].hero;
+---
+
+<aside class:list={['facts', className]} aria-label={facts.heading}>
+  {
+    framed && (
+      <div class="facts-head" aria-hidden="true">
+        <span>{facts.heading}</span>
+        <span>{facts.asOf}</span>
+      </div>
+    )
+  }
+  <dl class="kv">
+    <div>
+      <dt>{facts.status.label}</dt>
+      <dd><span class="hl">{facts.status.value}</span> · {facts.status.detail}</dd>
+    </div>
+    <div>
+      <dt>{facts.location.label}</dt>
+      <dd>{facts.location.value}</dd>
+    </div>
+    <div>
+      <dt>{facts.thesis.label}</dt>
+      <dd>{facts.thesis.value}</dd>
+    </div>
+    <div>
+      <dt>{facts.funding.label}</dt>
+      <dd>{facts.funding.value}</dd>
+    </div>
+  </dl>
+  {
+    framed && (
+      <div class="facts-foot">
+        <ExternalLink href={site.github} locale={locale}>github</ExternalLink>
+        <ExternalLink href={site.linkedin} locale={locale}>linkedin</ExternalLink>
+        <a href={`mailto:${site.email}`}>email</a>
+      </div>
+    )
+  }
+</aside>
+
+<style>
+  .facts {
+    background: var(--surface);
+    border: 1px solid var(--line);
+  }
+  .facts-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--line);
+    font: 400 0.6875rem/1.5 var(--mono);
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .kv {
+    margin: 0;
+    padding: 0.15rem 1rem;
+    font-size: 0.9375rem;
+  }
+  .kv div {
+    display: grid;
+    grid-template-columns: 6.25rem minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+  }
+  .kv div + div {
+    border-top: 1px dashed var(--line);
+  }
+  .kv dt {
+    font: 400 0.75rem/1.9 var(--mono);
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    overflow-wrap: anywhere;
+  }
+  .kv dd {
+    margin: 0;
+    line-height: 1.5;
+    padding-top: 0.1rem;
+  }
+  .hl {
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .facts-foot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    padding: 0.7rem 1rem;
+    border-top: 1px solid var(--line);
+    font: 500 0.8125rem var(--mono);
+  }
+  .facts-foot :global(a) {
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .facts-foot :global(a:hover) {
+    text-decoration: underline;
+  }
+  @media (max-width: 760px) {
+    .kv {
+      font-size: 0.875rem;
+    }
+    .kv div {
+      grid-template-columns: 5.5rem minmax(0, 1fr);
+      gap: 0.5rem;
+      padding: 0.45rem 0;
+    }
+    .kv dt {
+      font-size: 0.6875rem;
+    }
+    .facts-head {
+      display: none;
+    }
+  }
+</style>

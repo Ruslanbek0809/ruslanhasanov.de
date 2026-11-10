@@ -1,0 +1,76 @@
+---
+import { site } from '../../config/site';
+import { home } from '../../data';
+import type { Locale } from '../../i18n/routes';
+import { ui } from '../../i18n/ui';
+import { allCvs } from '../../lib/cv';
+import ExternalLink from '../ExternalLink.astro';
+import Icon from '../Icon.astro';
+import SectionHead from '../SectionHead.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { contact } = home[locale];
+const t = ui[locale];
+const cvs = allCvs();
+---
+
+<section class="block contact-block" id="contact" aria-labelledby="h-contact">
+  <div class="wrap">
+    <div class="contact grid-paper">
+      <SectionHead num="07" eyebrow={contact.eyebrow} heading={contact.heading} id="h-contact" />
+      <p>{contact.invitation}</p>
+      {contact.note && <p class="note">{contact.note}</p>}
+      <a class="mail" href={`mailto:${site.email}`}>{site.email}</a>
+      <div class="actions">
+        <ExternalLink class="btn" href={site.github} locale={locale} icon={false}>
+          <Icon name="github" />
+          GitHub
+        </ExternalLink>
+        <ExternalLink class="btn" href={site.linkedin} locale={locale} icon={false}>
+          <Icon name="linkedin" />
+          LinkedIn
+        </ExternalLink>
+        {
+          cvs.map((cv) => (
+            <a class="btn" href={cv.href} download hreflang={cv.lang}>
+              <Icon name="download" />
+              {t.cvLabels[cv.lang]}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-block {
+    border-bottom: 0;
+  }
+  .contact {
+    border: 1px solid var(--line);
+    background-color: var(--surface);
+    padding: clamp(1.5rem, 5vw, 3rem);
+  }
+  .contact p {
+    font-size: 1.125rem;
+    max-width: 38rem;
+    margin: 0 0 1.5rem;
+  }
+  .contact .note {
+    font-size: 0.9375rem;
+    color: var(--muted);
+    margin-top: -0.75rem;
+  }
+  .mail {
+    display: inline-block;
+    font: 500 clamp(1rem, 3.6vw, 1.75rem)/1.3 var(--mono);
+    color: var(--accent);
+    overflow-wrap: anywhere;
+    margin-bottom: 1.5rem;
+  }
+</style>

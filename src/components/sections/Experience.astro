@@ -1,0 +1,234 @@
+---
+import { home } from '../../data';
+import type { Locale } from '../../i18n/routes';
+import Icon from '../Icon.astro';
+import SectionHead from '../SectionHead.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { experience } = home[locale];
+---
+
+<section class="block" id="experience" aria-labelledby="h-experience">
+  <div class="wrap">
+    <SectionHead num="05" eyebrow={experience.eyebrow} heading={experience.heading} id="h-experience" />
+    <p class="legend">
+      <span><i class="mk" aria-hidden="true"></i>{experience.legend.work}</span>
+      <span><i class="mk mk--study" aria-hidden="true"></i>{experience.legend.study}</span>
+    </p>
+    <ol class="tl">
+      {
+        experience.items.map((item) => (
+          <li>
+            <span class="period">{item.period}</span>
+            <i class:list={['mk', { 'mk--study': item.kind === 'study' }]} aria-hidden="true" />
+            <span class="what">
+              <span class="visually-hidden">
+                {item.kind === 'study' ? experience.legend.study : experience.legend.work}:{' '}
+              </span>
+              <b>{item.title}</b>
+              <span class="org">
+                {item.org && <> · {item.org}</>} · {item.place}
+              </span>
+            </span>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="lower">
+      <div>
+        <h3 class="sub-head">{experience.educationHeading}</h3>
+        <ul class="edu">
+          {
+            experience.education.map((e) => (
+              <li>
+                <span class="period">{e.period}</span>
+                <b>{e.degree}</b>
+                <span class="org">{e.school}</span>
+                <p>{e.details}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div>
+        <h3 class="sub-head">{experience.awardsHeading}</h3>
+        <ul class="awards">
+          {
+            experience.awards.map((a) => (
+              <li class="award">
+                <Icon name="award" class="award-icon" />
+                <span>
+                  <b>{a.title}</b>
+                  <span class="period">{a.period}</span>
+                  <span class="detail">{a.detail}</span>
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .legend {
+    display: flex;
+    gap: 1.25rem;
+    font: 400 0.75rem var(--mono);
+    color: var(--muted);
+    margin: -1rem 0 1.5rem;
+  }
+  .legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .mk {
+    width: 0.625rem;
+    height: 0.625rem;
+    border: 2px solid var(--accent);
+    background: var(--accent);
+    display: inline-block;
+    flex: none;
+  }
+  .mk--study {
+    background: var(--surface);
+    border-radius: 50%;
+  }
+  .tl {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  .tl::before {
+    content: '';
+    position: absolute;
+    left: calc(10rem + 1rem + 4px);
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 1px;
+    background: var(--line);
+  }
+  .tl li {
+    display: grid;
+    grid-template-columns: 10rem 0.625rem minmax(0, 1fr);
+    gap: 0 1rem;
+    padding: 0.55rem 0;
+    align-items: start;
+  }
+  .tl .period {
+    font: 400 0.8125rem/1.6rem var(--mono);
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .tl .mk {
+    margin-top: 0.49rem;
+    position: relative;
+  }
+  .tl b {
+    font-weight: 600;
+  }
+  .org {
+    color: var(--muted);
+  }
+  .lower {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 2rem 3rem;
+    margin-top: 3rem;
+  }
+  .sub-head {
+    font: 500 0.75rem var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin: 0 0 0.75rem;
+  }
+  .edu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--ink);
+  }
+  .edu li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .edu .period,
+  .award .period {
+    font: 400 0.8125rem/1.6 var(--mono);
+    color: var(--muted);
+  }
+  .edu .org {
+    font-size: 0.9375rem;
+  }
+  .edu p {
+    margin: 0.4rem 0 0;
+    font-size: 0.9375rem;
+  }
+  .awards {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+  .award {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 0.9rem 1rem;
+    font-size: 0.9375rem;
+  }
+  .award > span {
+    display: flex;
+    flex-direction: column;
+  }
+  .award :global(.award-icon) {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--accent);
+    margin-top: 0.15rem;
+    flex: none;
+  }
+  .detail {
+    color: var(--muted);
+    margin-top: 0.25rem;
+  }
+  @media (max-width: 860px) {
+    .lower {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 640px) {
+    .tl::before {
+      left: 4px;
+    }
+    .tl li {
+      grid-template-columns: 0.625rem minmax(0, 1fr);
+    }
+    .tl .period {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .tl .mk {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+    }
+    .tl .what {
+      grid-column: 2;
+    }
+  }
+</style>
