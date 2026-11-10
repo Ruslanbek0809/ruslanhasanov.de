@@ -1,0 +1,75 @@
+---
+import { getCollection, render } from 'astro:content';
+import { pageAlternates, type Locale } from '../i18n/routes';
+import { ui } from '../i18n/ui';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+interface Props {
+  locale: Locale;
+  page: 'imprint' | 'privacy';
+}
+
+const { locale, page } = Astro.props;
+const [entry] = await getCollection('legal', (e) => e.id.startsWith(`${locale}/`) && e.data.page === page);
+if (!entry) throw new Error(`Missing legal page "${page}" for locale "${locale}" in src/content/legal/`);
+
+const { Content } = await render(entry);
+const t = ui[locale].legal;
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${entry.data.title} | Ruslan Hasanov`}
+  description={entry.data.description}
+  alternates={pageAlternates(page)}
+  noindex
+>
+  <div class="wrap legal">
+    <div class="draft" role="note">
+      <strong>{t.draftTitle}</strong>
+      <span>{t.draftBody}</span>
+    </div>
+    <h1>{entry.data.title}</h1>
+    <div class="prose">
+      <Content />
+    </div>
+    <p class="updated">{t.updated}: {entry.data.updated}</p>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal {
+    padding-top: clamp(2rem, 5vw, 3.5rem);
+    padding-bottom: clamp(3rem, 7vw, 5rem);
+  }
+  .draft {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    align-items: baseline;
+    max-width: 44rem;
+    border: 2px solid var(--amber);
+    background: var(--surface);
+    padding: 0.85rem 1.1rem;
+    margin-bottom: 2rem;
+  }
+  .draft strong {
+    font: 600 0.875rem var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--amber);
+  }
+  .draft span {
+    font-size: 0.9375rem;
+  }
+  h1 {
+    font: 600 clamp(2rem, 5vw, 3rem)/1.1 var(--sans);
+    letter-spacing: -0.03em;
+    margin: 0 0 2rem;
+  }
+  .updated {
+    font: 400 0.8125rem var(--mono);
+    color: var(--muted);
+    margin: 2.5rem 0 0;
+  }
+</style>

@@ -1,0 +1,61 @@
+---
+import Icon from '../components/Icon.astro';
+import { pagePath } from '../i18n/routes';
+import { ui } from '../i18n/ui';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const en = ui.en.notFound;
+const de = ui.de.notFound;
+---
+
+<BaseLayout locale="en" title={en.title} description={en.description} noindex>
+  <section class="nf grid-paper" aria-labelledby="nf-title">
+    <div class="wrap">
+      <p class="code" aria-hidden="true">404</p>
+      <h1 id="nf-title">{en.heading}</h1>
+      <p class="lead">{en.body}</p>
+      <p class="lead" lang="de">{de.body}</p>
+      <div class="actions">
+        <a class="btn btn--primary" href={pagePath('home', 'en')}>
+          <Icon name="arrow-left" />
+          {en.homeButton}
+        </a>
+        <a class="btn" href={pagePath('home', 'de')} lang="de" hreflang="de">{en.otherLanguage}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .nf {
+    border-bottom: 1px solid var(--line);
+    min-height: calc(100vh - var(--header-h) - 6rem);
+    display: flex;
+    align-items: center;
+  }
+  .nf .wrap {
+    width: 100%;
+    padding-top: clamp(3rem, 8vw, 6rem);
+    padding-bottom: clamp(3rem, 8vw, 6rem);
+  }
+  .code {
+    font: 500 clamp(4rem, 14vw, 8rem)/1 var(--mono);
+    letter-spacing: -0.04em;
+    color: var(--accent);
+    margin: 0 0 1rem;
+  }
+  h1 {
+    font: 600 clamp(2rem, 5vw, 3rem)/1.1 var(--sans);
+    letter-spacing: -0.03em;
+    margin: 0 0 1rem;
+  }
+  .lead {
+    font-size: 1.125rem;
+    max-width: 36rem;
+    margin: 0 0 0.5rem;
+  }
+  .lead[lang='de'] {
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+</style>

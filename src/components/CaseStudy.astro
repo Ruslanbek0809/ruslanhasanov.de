@@ -1,0 +1,353 @@
+---
+import { render } from 'astro:content';
+import { homeAnchor, workAlternates, workPath, type Locale } from '../i18n/routes';
+import { ui } from '../i18n/ui';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projectSlug, type Project } from '../lib/projects';
+import ExternalLink from './ExternalLink.astro';
+import Icon from './Icon.astro';
+
+interface Props {
+  locale: Locale;
+  entry: Project;
+  next: Project;
+  index: number;
+  total: number;
+}
+
+const { locale, entry, next, index, total } = Astro.props;
+const { data } = entry;
+const t = ui[locale].caseStudy;
+const slug = projectSlug(entry);
+const { Content } = await render(entry);
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${data.title} | Ruslan Hasanov`}
+  description={data.description}
+  alternates={workAlternates(slug)}
+  ogType="article"
+>
+  <article aria-labelledby="cs-title">
+    <header class="cs-head grid-paper">
+      <div class="wrap">
+        <a class="back" href={homeAnchor('work', locale)}>
+          <Icon name="arrow-left" />
+          {t.back}
+        </a>
+        <div class="kicker">
+          <p class="eyebrow"><b>{pad(index)}</b> / {pad(total)} · {t.eyebrow}</p>
+          <span class:list={['chip', `chip--${data.badge.tone}`]}>{data.badge.label}</span>
+        </div>
+        <h1 id="cs-title">{data.title}</h1>
+        <p class="tagline">{data.tagline}</p>
+        <dl class="meta">
+          <div>
+            <dt>{t.period}</dt>
+            <dd>{data.period}</dd>
+          </div>
+          <div>
+            <dt>{t.context}</dt>
+            <dd>{data.context}</dd>
+          </div>
+        </dl>
+      </div>
+    </header>
+
+    <div class="wrap cs-body">
+      <div class="prose">
+        <Content />
+      </div>
+
+      <aside class="side">
+        {
+          data.figures.length > 0 && (
+            <dl class="figs">
+              {data.figures.map((fig) => (
+                <div>
+                  <dt>{fig.label}</dt>
+                  <dd>{fig.value}</dd>
+                </div>
+              ))}
+            </dl>
+          )
+        }
+        <div class="panel">
+          <h2 class="panel-head">{t.stack}</h2>
+          <ul class="tags">
+            {data.stack.map((s) => <li>{s}</li>)}
+          </ul>
+        </div>
+        <div class="panel">
+          <h2 class="panel-head">{t.links}</h2>
+          {
+            data.links.length > 0 ? (
+              <ul class="links">
+                {data.links.map((link) => (
+                  <li>
+                    <ExternalLink href={link.href} locale={locale}>
+                      {link.label}
+                    </ExternalLink>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p class="none">{t.noLinks}</p>
+            )
+          }
+        </div>
+      </aside>
+
+      <section class="highlight" aria-labelledby="cs-highlight">
+        <h2 id="cs-highlight" class="eyebrow">{t.highlight}</h2>
+        <p>{data.highlight}</p>
+      </section>
+    </div>
+
+    <nav class="wrap" aria-label={t.next}>
+      <div class="pager">
+      <a class="pager-back" href={homeAnchor('work', locale)}>
+        <Icon name="arrow-left" />
+        {t.back}
+      </a>
+      <a class="pager-next" href={workPath(projectSlug(next), locale)}>
+        <span class="eyebrow">{t.next}</span>
+        <span class="next-title">
+          {next.data.title}
+          <Icon name="arrow-right" />
+        </span>
+      </a>
+      </div>
+    </nav>
+  </article>
+</BaseLayout>
+
+<style>
+  .cs-head {
+    border-bottom: 1px solid var(--line);
+  }
+  .cs-head .wrap {
+    padding-top: clamp(1.5rem, 4vw, 2.5rem);
+    padding-bottom: clamp(2rem, 5vw, 3.5rem);
+  }
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font: 500 0.8125rem var(--mono);
+    color: var(--accent);
+    text-decoration: none;
+    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  }
+  .back:hover {
+    text-decoration: underline;
+  }
+  .kicker {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .kicker .eyebrow {
+    margin: 0;
+  }
+  h1 {
+    font: 600 clamp(1.75rem, 4.5vw, 3rem)/1.1 var(--sans);
+    letter-spacing: -0.03em;
+    margin: 0 0 1rem;
+    max-width: 52rem;
+  }
+  .tagline {
+    font-size: clamp(1.0625rem, 2vw, 1.25rem);
+    line-height: 1.55;
+    max-width: 44rem;
+    margin: 0 0 1.75rem;
+  }
+  .meta {
+    margin: 0;
+    max-width: 52rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 0.15rem 1rem;
+    font-size: 0.9375rem;
+  }
+  .meta div {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+  }
+  .meta div + div {
+    border-top: 1px dashed var(--line);
+  }
+  .meta dt {
+    font: 400 0.75rem/1.9 var(--mono);
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .meta dd {
+    margin: 0;
+  }
+
+  .cs-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 20rem);
+    gap: 2.5rem clamp(2rem, 5vw, 4.5rem);
+    padding-top: clamp(2.5rem, 6vw, 4rem);
+    padding-bottom: clamp(2.5rem, 6vw, 4rem);
+    align-items: start;
+  }
+  .side {
+    display: grid;
+    gap: 1rem;
+    grid-row: span 2;
+  }
+  .figs {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .figs div {
+    background: var(--surface);
+    padding: 0.85rem 1rem;
+    min-width: 0;
+  }
+  .figs dt {
+    font: 400 0.6875rem/1.4 var(--mono);
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .figs dd {
+    margin: 0.3rem 0 0;
+    font: 500 1.125rem/1.2 var(--mono);
+  }
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 1.1rem 1.25rem 1.25rem;
+  }
+  .panel-head {
+    font: 500 0.75rem var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin: 0 0 0.75rem;
+  }
+  .links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.4rem;
+  }
+  .links :global(a) {
+    font: 500 0.875rem var(--mono);
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    text-decoration: none;
+  }
+  .links :global(a:hover) {
+    text-decoration: underline;
+  }
+  .none {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+  .highlight {
+    max-width: 44rem;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    background: var(--surface);
+    padding: 1rem 1.25rem;
+  }
+  .highlight p {
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  .pager {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.25rem 2rem;
+    padding: 1.75rem 0 clamp(2.5rem, 6vw, 4rem);
+    border-top: 1px solid var(--line);
+  }
+  .pager a {
+    text-decoration: none;
+  }
+  .pager-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font: 500 0.8125rem var(--mono);
+    color: var(--accent);
+  }
+  .pager-next {
+    display: flex;
+    flex-direction: column;
+    max-width: 30rem;
+    margin-left: auto;
+    text-align: right;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 0.9rem 1.1rem;
+  }
+  .pager-next:hover {
+    border-color: var(--ink);
+  }
+  .pager-next .eyebrow {
+    margin-bottom: 0.25rem;
+  }
+  .next-title {
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+  .pager-back:hover,
+  .pager-next:hover .next-title {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 860px) {
+    .cs-body {
+      grid-template-columns: 1fr;
+    }
+    .side {
+      grid-row: auto;
+      order: 2;
+    }
+    .highlight {
+      order: 1;
+    }
+  }
+  @media (max-width: 560px) {
+    .meta div {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .pager-next {
+      text-align: left;
+      margin-left: 0;
+      width: 100%;
+    }
+    .next-title {
+      justify-content: flex-start;
+    }
+  }
+</style>
