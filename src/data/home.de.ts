@@ -4,14 +4,14 @@ const home: HomeContent = {
   seo: {
     title: 'Ruslan Hasanov | KI-/ML-Ingenieur, Zeitreihen & LLM-Agenten',
     description:
-      'KI-/ML-Ingenieur, M.Sc. an der TU Ilmenau. Foundation Models für Zeitreihen, LLM-Agenten, über 4 Jahre Flutter-Apps im Produktivbetrieb. Bremerhaven.',
+      'KI-/ML-Ingenieur und M.Sc.-Student an der TU Ilmenau. Zeitreihenmodelle, LLM-Agenten, über 4 Jahre Flutter-Apps. Bremerhaven.',
   },
 
   hero: {
     name: 'Ruslan Hasanov',
-    role: 'KI-/ML-Ingenieur, der Software ausliefert',
+    role: 'M.Sc.-Student an der TU Ilmenau · DAAD-Stipendiat',
     pitch:
-      'Ich vergleiche Foundation Models für Zeitreihen und baue LLM-Agenten. Zuvor habe ich über vier Jahre Flutter-Apps in den Produktivbetrieb gebracht.',
+      'KI-/ML-Ingenieur, der liefert. Zeitreihenmodelle und LLM-Agenten.',
     availability: 'Ab sofort verfügbar',
     buttons: { work: 'Projekte ansehen', contact: 'Kontakt aufnehmen' },
     facts: {
@@ -50,15 +50,15 @@ const home: HomeContent = {
     eyebrow: 'kennzahlen',
     heading: 'Kennzahlen',
     items: [
-      { index: '[Modelle]', value: '6', caption: 'Foundation Models in der Masterarbeit verglichen' },
+      { index: '[Modelle]', value: '6', caption: 'Foundation Models in der Masterarbeit' },
       {
         index: '[Prognosefehler]',
         value: '29 %',
         caption: 'geringerer 24-h-Fehler (vorläufiger Pilot)',
         bars: { reference: 'saisonal naiv', model: 'Chronos-2', ratio: 0.71 },
       },
-      { index: '[Experimente]', value: '192', caption: 'LLM-Prognoseexperimente durchgeführt' },
-      { index: '[Reichweite]', value: '20.000+', caption: 'Downloads eines von mir gebauten Online-Shops' },
+      { index: '[Experimente]', value: '192', caption: 'LLM-Prognoseexperimente' },
+      { index: '[Reichweite]', value: '20.000+', caption: 'Downloads eines Online-Shops' },
     ],
   },
 
@@ -67,41 +67,41 @@ const home: HomeContent = {
   shipped: {
     eyebrow: 'software',
     heading: 'Produktive Software',
-    intro: 'Vor der Forschung habe ich über vier Jahre mobile Apps entwickelt und veröffentlicht, überwiegend mit Flutter.',
+    intro: 'Vier Jahre mobile Apps, meist mit Flutter.',
     jobs: [
       {
         name: 'Flipgoo',
         role: 'Softwareentwickler (Mobile, Client-Anwendungen)',
         period: '09/2023 – 09/2024',
         place: 'Budapest, Ungarn',
-        text: 'Ich habe die Flutter-App eines Marktplatzes für Privat- und Geschäftskunden entwickelt (iOS, Android) und Backend-Schnittstellen angebunden. In die produktive App habe ich Firebase, In-App-Abonnements (RevenueCat), Fehlerüberwachung (Sentry), SMS und Anrufe (Twilio), Apple- und Google-Anmeldung sowie Google Maps integriert. Dazu kamen Kauf-, Verkaufs- und Shop-Funktionen mit Premium- und Geschäftskonten.',
+        text: 'Ich habe die Flutter-App eines Marktplatzes für iOS und Android gebaut, mit Premium- und Geschäftskonten. Eingebunden habe ich Abos, Anmeldung, Karten und Fehlerüberwachung.',
       },
       {
         name: 'Yashyl Ada',
         role: 'Softwareentwickler (Mobile, Client-Anwendungen)',
         period: '03/2021 – 02/2024',
         place: 'Aschgabat, Turkmenistan',
-        text: 'Ich habe zwei plattformübergreifende Apps für iOS und Android entwickelt, mit Backend-Schnittstellen, Firebase, Sentry und Google Maps. Drei Apps habe ich getestet und in den Stores veröffentlicht. Die Kundenzufriedenheit lag innerhalb von drei Monaten bei 95 %.',
+        text: 'Ich habe zwei Apps für iOS und Android gebaut und drei in den Stores veröffentlicht. Die Kundenzufriedenheit lag nach drei Monaten bei 95 %.',
       },
       {
         name: 'Freelance',
         role: 'Flutter-Entwickler',
         period: '11/2020 – 03/2021',
         place: 'Aschgabat, Turkmenistan',
-        text: 'Ich habe eine Flutter-App für einen Einzelhändler gebaut (Umsatz +47 %) und einen Online-Shop mit über 20.000 Downloads und mehr als 100.000 Transaktionen umgesetzt.',
+        text: 'Ich habe die App eines Einzelhändlers gebaut (Umsatz +47 %) und einen Online-Shop mit über 20.000 Downloads und 100.000 Transaktionen.',
       },
       {
         name: 'Sanly Galam',
         role: 'Junior-Softwareentwickler (Mobile)',
         period: '12/2019 – 11/2020',
         place: 'Aschgabat, Turkmenistan',
-        text: 'Ich habe rund 90 % des App-Lebenszyklus begleitet, von der Konzeption über Tests bis zum Support. Durch gezielte Fehleranalyse und Überarbeitung habe ich die Performance einer produktiven App um 70 % verbessert.',
+        text: 'Ich habe rund 90 % des App-Lebenszyklus abgedeckt, von der Konzeption bis zum Support. Die Performance einer produktiven App habe ich um 70 % verbessert.',
       },
       {
         name: 'Digital Solution 2020',
         role: 'Wettbewerb',
         period: '12/2020',
-        text: 'Ich habe die Entwicklung und Einführung eines einsatzfähigen E-Health-Systems für Ärztinnen/Ärzte und Patientinnen/Patienten geleitet. Ergebnis: 1. Platz unter 23 Teams in der Kategorie Gesundheitswesen.',
+        text: 'Ich habe ein E-Health-System für Ärztinnen/Ärzte und Patientinnen/Patienten geleitet. 1. Platz unter 23 Teams im Bereich Gesundheit.',
       },
     ],
     openSourceHeading: 'Open Source',
@@ -111,45 +111,45 @@ const home: HomeContent = {
         url: 'https://github.com/Ruslanbek0809/Yummify',
         stars: '30 Sterne',
         lang: 'Dart',
-        text: 'Eine voll funktionsfähige Flutter-App für Restaurantmenüs. MVVM Clean Architecture, Stacked, JSON-API.',
+        text: 'Flutter-App für Restaurantmenüs. MVVM, Stacked, JSON-API.',
       },
       {
         name: 'DigitalSignature',
         url: 'https://github.com/Ruslanbek0809/DigitalSignature',
         stars: '16 Sterne',
         lang: 'Dart',
-        text: 'Eine App für digitale Signaturen, „E-Gol“.',
+        text: 'App für digitale Signaturen, „E-Gol“.',
       },
       {
         name: 'yoda_restoran',
         url: 'https://github.com/Ruslanbek0809/yoda_restoran',
         stars: '2 Sterne',
         lang: 'Dart',
-        text: 'Eine Restaurant-App in MVVM Clean Architecture.',
+        text: 'Restaurant-App in MVVM Clean Architecture.',
       },
       {
         name: 'thuri_cycle',
         url: 'https://github.com/Ruslanbek0809/thuri_cycle',
         lang: 'Dart',
-        text: 'Eine mobile App, die zu richtigem Recycling und Müllvermeidung in Thüringen anleitet.',
+        text: 'App zu Recycling und Müllvermeidung in Thüringen.',
       },
       {
         name: 'sensbee_nvp',
         url: 'https://github.com/Ruslanbek0809/sensbee_nvp',
         lang: 'Python',
-        text: 'FastAPI-Dienst zur Vorhersage des nächsten Werts von Smart-City-Sensordaten.',
+        text: 'FastAPI-Dienst für den nächsten Wert von Smart-City-Sensordaten.',
       },
       {
         name: 'hw-verif-agent',
         url: 'https://github.com/Ruslanbek0809/hw-verif-agent',
         lang: 'SystemVerilog, Python',
-        text: 'Ein Python-LLM-Agent für einen Hardware-Verifikationsablauf.',
+        text: 'Python-LLM-Agent für die Hardware-Verifikation.',
       },
       {
         name: 'img_harmnztn_impls',
         url: 'https://github.com/Ruslanbek0809/img_harmnztn_impls',
         lang: 'Python',
-        text: 'Klassische Implementierungen zur Bildharmonisierung.',
+        text: 'Klassische Verfahren zur Bildharmonisierung.',
       },
     ],
   },
@@ -158,15 +158,14 @@ const home: HomeContent = {
     eyebrow: 'über mich',
     heading: 'Über mich',
     paragraphs: [
-      'Ich bin KI-/ML-Ingenieur. Ich studiere Computer and Systems Engineering (M.Sc.) an der TU Ilmenau mit einem DAAD-Stipendium und wohne in Bremerhaven. Alle Module sind abgeschlossen (90 CP, Durchschnittsnote 2,1).',
-      'In meiner Masterarbeit teste ich sechs vortrainierte Foundation Models für Zeitreihen auf echten Sensordaten einer Smart City, mit Unsicherheitsschätzungen und Signifikanztests. Davor standen ein Forschungsprojekt zur LLM-basierten Prognose (Note 1,3) und ein Gruppenprojekt zu einem LLM-Agenten für die Hardware-Verifikation.',
-      'Über vier Jahre habe ich mobile Apps in Turkmenistan und Ungarn entwickelt und veröffentlicht. Ich bin ab sofort verfügbar, in Teilzeit oder Vollzeit (auch als Werkstudent), remote oder vor Ort im Raum Bremerhaven–Bremen.',
+      'Ich studiere Computer and Systems Engineering (M.Sc.) an der TU Ilmenau mit DAAD-Stipendium und lebe in Bremerhaven. Alle Module sind abgeschlossen: 90 CP, Durchschnitt 2,1.',
+      'In der Masterarbeit teste ich sechs vortrainierte Zeitreihenmodelle auf echten Sensordaten einer Smart City. Davor habe ich zu LLM-Prognosen geforscht, an einem LLM-Agenten für Hardware-Verifikation gearbeitet und vier Jahre Apps entwickelt.',
     ],
     now: {
       label: 'Aktuell',
       text: [
-        'Masterarbeit an der TU Ilmenau, Fachgebiet Datenbanken und Informationssysteme, 09/2026 – 03/2027.',
-        'Ab sofort verfügbar, in Teilzeit oder Vollzeit (auch als Werkstudent).',
+        'Masterarbeit an der TU Ilmenau, 09/2026 – 03/2027.',
+        'Fachgebiet Datenbanken und Informationssysteme.',
       ],
     },
   },
@@ -240,20 +239,20 @@ const home: HomeContent = {
         school: 'Technische Universität Ilmenau, Deutschland',
         period: '10/2024 – 03/2027',
         details:
-          'Alle Module abgeschlossen: 90 CP, Durchschnittsnote 2,1. Masterarbeit in Arbeit. Relevante Module: Deep Learning (CNNs, Transfer Learning, Klassifikation, Lokalisierung, Segmentierung), Advanced Database Systems, Cloud Computing, Software Systems Engineering.',
+          '90 CP, Durchschnitt 2,1. Masterarbeit in Arbeit. Module: Deep Learning, Advanced Database Systems, Cloud Computing, Software Systems Engineering.',
       },
       {
         degree: 'B.Sc. Computer Science and Information Technology',
         school: 'Oguzhan-Universität für Ingenieurwesen und Technologie Turkmenistans, Aschgabat',
         period: '09/2016 – 06/2021',
         details:
-          'Note 87/100 (entspricht deutscher Note 1,7). Schwerpunkte: objektorientierte Programmierung in C++, Algorithmen, Betriebssysteme, Datenstrukturen.',
+          'Note 87/100 (deutsche Note 1,7). Schwerpunkte: C++, Algorithmen, Betriebssysteme, Datenstrukturen.',
       },
       {
         degree: 'Graduate Record Examinations (GRE), Kurs',
         school: 'American Councils for International Education, Aschgabat',
         period: '03/2022 – 07/2022',
-        details: 'Kurs in analytischem und quantitativem Denken, Abschluss mit 90 %.',
+        details: 'Analytisches und quantitatives Denken, Abschluss mit 90 %.',
       },
     ],
     awardsHeading: 'Auszeichnungen',
@@ -266,7 +265,7 @@ const home: HomeContent = {
       {
         title: '1. Platz unter 23 Teams, Kategorie Gesundheitswesen',
         detail:
-          'Wettbewerb Digital Solution 2020, Aschgabat. Leitung der Entwicklung und Einführung eines einsatzfähigen E-Health-Systems für Ärztinnen/Ärzte und Patientinnen/Patienten.',
+          'Wettbewerb Digital Solution 2020, Aschgabat. Leitung eines E-Health-Systems für Ärztinnen/Ärzte und Patientinnen/Patienten.',
         period: '12/2020',
       },
     ],
@@ -312,7 +311,7 @@ const home: HomeContent = {
     languagesHeading: 'Sprachen',
     languages: [
       { name: 'Englisch', level: 'verhandlungssicher (C1), TOEFL iBT 108/120' },
-      { name: 'Deutsch', level: 'Grundkenntnisse (A2), B1 in Vorbereitung. Kurs an der TU Ilmenau A2.3, Note 1,3' },
+      { name: 'Deutsch', level: 'Grundkenntnisse (A2), B1 in Vorbereitung' },
       { name: 'Türkisch', level: 'fließend' },
       { name: 'Russisch', level: 'fortgeschritten' },
       { name: 'Usbekisch, Turkmenisch', level: 'Muttersprache' },
@@ -323,8 +322,8 @@ const home: HomeContent = {
     eyebrow: 'kontakt',
     heading: 'Kontakt aufnehmen',
     invitation:
-      'Ab sofort verfügbar, in Teilzeit oder Vollzeit, remote oder vor Ort im Raum Bremerhaven–Bremen. Schreiben Sie mir gern zu KI-/ML-Entwicklung, Prognosen oder LLM-Agenten.',
-    note: 'Ich lerne gerade Deutsch (aktuell A2, B1 in Vorbereitung). Gespräche funktionieren derzeit am besten auf Englisch.',
+      'Ab sofort verfügbar, Teilzeit oder Vollzeit, remote oder im Raum Bremerhaven–Bremen. Schreiben Sie mir zu KI/ML, Prognosen oder LLM-Agenten.',
+    note: 'Mein Deutsch ist A2, B1 ist in Vorbereitung. Gespräche laufen derzeit besser auf Englisch.',
   },
 
   person: {

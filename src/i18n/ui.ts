@@ -66,7 +66,7 @@ export const ui: Record<Locale, UiStrings> = {
       stack: 'Stack',
       links: 'Links',
       noLinks: 'No public links yet.',
-      highlight: "What I'd highlight to an engineer",
+      highlight: 'Worth noting',
       readMore: 'Read case study',
     },
     legal: {
@@ -76,9 +76,9 @@ export const ui: Record<Locale, UiStrings> = {
     },
     notFound: {
       title: 'Page not found | Ruslan Hasanov',
-      description: 'The page you were looking for does not exist.',
+      description: 'This page does not exist.',
       heading: 'Page not found',
-      body: 'The page you were looking for does not exist or has moved.',
+      body: 'This page does not exist or has moved.',
       homeButton: 'Back to the home page',
       otherLanguage: 'Zur deutschen Startseite',
     },
@@ -111,7 +111,7 @@ export const ui: Record<Locale, UiStrings> = {
       stack: 'Technologien',
       links: 'Links',
       noLinks: 'Noch keine öffentlichen Links.',
-      highlight: 'Das Wichtigste aus technischer Sicht',
+      highlight: 'Technisch interessant',
       readMore: 'Fallstudie lesen',
     },
     legal: {
@@ -121,9 +121,9 @@ export const ui: Record<Locale, UiStrings> = {
     },
     notFound: {
       title: 'Seite nicht gefunden | Ruslan Hasanov',
-      description: 'Die gesuchte Seite existiert nicht.',
+      description: 'Diese Seite gibt es nicht.',
       heading: 'Seite nicht gefunden',
-      body: 'Die gesuchte Seite existiert nicht oder wurde verschoben.',
+      body: 'Diese Seite gibt es nicht oder sie wurde verschoben.',
       homeButton: 'Zur Startseite',
       otherLanguage: 'Go to the English home page',
     },

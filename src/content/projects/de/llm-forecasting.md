@@ -2,14 +2,14 @@
 order: 2
 kind: Forschungsprojekt · TU Ilmenau
 title: Zero-Shot-Zeitreihenprognose mit LLMs
-tagline: Ein FastAPI-Dienst, der LLMs nach dem nächsten Sensorwert fragt, und was die Messung ergab
+tagline: LLMs nach dem nächsten Sensorwert fragen, und was die Messung ergab
 description: "Fallstudie Forschungsprojekt: ein FastAPI-Microservice zur LLM-gestützten Prognose von IoT-Sensordaten, evaluiert mit 4 LLMs in 192 Experimenten."
 period: 10/2025 – 03/2026
 context: TU Ilmenau, SensBee-Plattform für Smart Cities. Note 1,3.
 badge: { label: "Note 1,3", tone: ok }
-summary: FastAPI-Microservice mit 6-stufiger Datenpipeline zur LLM-gestützten Prognose von IoT-Sensordaten. 4 LLMs in 192 Experimenten evaluiert. Allgemeine LLMs sind auf numerischen Sensordaten unzuverlässig.
+summary: "FastAPI-Dienst, der IoT-Sensordaten mit LLMs prognostiziert. 4 LLMs, 192 Experimente: Allgemeine LLMs sind auf numerischen Sensordaten unzuverlässig."
 tags: [Python, FastAPI, LLMs]
-highlight: Das negative Ergebnis ist der nützliche Teil. Deshalb vergleicht die Masterarbeit spezialisierte Zeitreihenmodelle.
+highlight: "Das negative Ergebnis ist der Grund, warum die Masterarbeit spezialisierte Zeitreihenmodelle vergleicht."
 stack: [Python, FastAPI, LLMs, IoT-Sensordaten]
 links:
   - { label: sensbee_nvp auf GitHub, href: "https://github.com/Ruslanbek0809/sensbee_nvp" }
@@ -17,18 +17,17 @@ links:
 
 ## Problem
 
-LLMs können ohne aufgabenspezifisches Training prognostizieren. Die SensBee-Plattform für Smart Cities hält IoT-Sensordaten. Ich wollte wissen, wie zuverlässig allgemeine LLMs bei numerischen Sensorwerten sind.
+LLMs können ohne aufgabenspezifisches Training prognostizieren. Ich habe geprüft, wie zuverlässig allgemeine LLMs auf IoT-Sensordaten der Smart-City-Plattform SensBee sind.
 
 ## Vorgehen
 
-- FastAPI-Microservice in Python für die Vorhersage des jeweils nächsten Werts auf der SensBee-Plattform.
+- FastAPI-Microservice für die Vorhersage des nächsten Werts auf SensBee.
 - Datenverarbeitung als 6-stufige Pipeline.
-- 4 LLMs in 192 Experimenten evaluiert.
-- Methode und Ergebnisse in einem wissenschaftlichen Abschlussbericht dokumentiert.
+- 4 LLMs in 192 Experimenten.
+- Methode und Ergebnisse in einem schriftlichen Abschlussbericht.
 
 ## Ergebnisse
 
-- 192 Experimente mit 4 LLMs.
-- Allgemeine LLMs sind auf numerischen Sensordaten unzuverlässig.
-- Dieses Ergebnis gab die Frage für meine Masterarbeit vor: vortrainierte Zeitreihenmodelle statt allgemeiner LLMs.
+- 192 Experimente, 4 LLMs.
+- Allgemeine LLMs auf numerischen Sensordaten unzuverlässig.
 - Note 1,3.
