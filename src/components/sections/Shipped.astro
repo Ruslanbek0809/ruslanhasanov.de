@@ -14,7 +14,7 @@ const { shipped } = home[locale];
 
 <section class="block" id="shipped" aria-labelledby="h-shipped">
   <div class="wrap">
-    <SectionHead num="03" eyebrow={shipped.eyebrow} heading={shipped.heading} id="h-shipped" />
+    <SectionHead heading={shipped.heading} id="h-shipped" />
     <p class="intro">{shipped.intro}</p>
     <ul class="rows">
       {
@@ -66,22 +66,21 @@ const { shipped } = home[locale];
 
 <style>
   .intro {
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
     max-width: 44rem;
-    margin: -0.75rem 0 1.75rem;
+    margin: -1rem 0 2rem;
   }
   .rows {
     list-style: none;
     margin: 0;
     padding: 0;
-    border-top: 1px solid var(--ink);
   }
   .rows li {
     display: grid;
-    grid-template-columns: 14rem 12rem minmax(0, 1fr);
-    gap: 0.25rem 1.5rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--line);
+    grid-template-columns: 15rem 11rem minmax(0, 1fr);
+    gap: 0.25rem 2rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--line);
   }
   .who strong {
     display: block;
@@ -91,36 +90,42 @@ const { shipped } = home[locale];
     display: block;
     font-size: 0.875rem;
     color: var(--muted);
-    line-height: 1.45;
+    line-height: 1.5;
   }
   .where {
-    font: 400 0.8125rem/1.8 var(--mono);
+    font-size: 0.875rem;
+    line-height: 1.7;
     color: var(--muted);
+    font-variant-numeric: tabular-nums;
   }
   .rows p {
     margin: 0;
   }
   .os-head {
-    margin: 2.5rem 0 1rem;
+    margin: 3.5rem 0 1rem;
   }
   .rows--os li {
-    padding: 0.8rem 0;
+    padding: 0.9rem 0;
   }
   .rows--os :global(a) {
-    font: 500 0.9375rem var(--mono);
-    color: var(--accent);
+    font-weight: 600;
+    color: var(--ink);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
     overflow-wrap: anywhere;
   }
+  .rows--os :global(a svg) {
+    color: var(--muted);
+  }
   .rows--os :global(a:hover) {
+    color: var(--accent);
     text-decoration: underline;
   }
   @media (max-width: 960px) {
     .rows li {
-      grid-template-columns: 12rem minmax(0, 1fr);
+      grid-template-columns: 13rem minmax(0, 1fr);
     }
     .rows p {
       grid-column: 1 / -1;

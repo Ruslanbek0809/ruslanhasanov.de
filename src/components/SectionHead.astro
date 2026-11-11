@@ -1,15 +1,13 @@
 ---
 interface Props {
-  /** Two-digit section number, e.g. "01". */
-  num: string;
-  eyebrow: string;
   heading: string;
   /** id of the h2, referenced by the section's aria-labelledby. */
   id: string;
+  /** Keep the heading for screen readers and the outline, but do not show it. */
+  hidden?: boolean;
 }
 
-const { num, eyebrow, heading, id } = Astro.props;
+const { heading, id, hidden = false } = Astro.props;
 ---
 
-<p class="eyebrow" aria-hidden="true"><b>{num}</b> / {eyebrow}</p>
-<h2 id={id}>{heading}</h2>
+<h2 id={id} class:list={{ 'visually-hidden': hidden }}>{heading}</h2>

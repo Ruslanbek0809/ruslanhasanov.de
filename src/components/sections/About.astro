@@ -20,11 +20,11 @@ const { about } = home[locale];
         <div class="head-row">
           <Photo locale={locale} class="about-photo" sizes="(max-width: 760px) 88px, 152px" loading="lazy" />
           <div>
-            <SectionHead num="04" eyebrow={about.eyebrow} heading={about.heading} id="h-about" />
+            <SectionHead heading={about.heading} id="h-about" />
           </div>
         </div>
       ) : (
-        <SectionHead num="04" eyebrow={about.eyebrow} heading={about.heading} id="h-about" />
+        <SectionHead heading={about.heading} id="h-about" />
       )
     }
     <div class="about">
@@ -32,7 +32,7 @@ const { about } = home[locale];
         {about.paragraphs.map((p) => <p>{p}</p>)}
       </div>
       <div class="now">
-        <p class="eyebrow">{about.now.label}</p>
+        <p class="now-label">{about.now.label}</p>
         {about.now.text.map((p) => <p>{p}</p>)}
       </div>
     </div>
@@ -44,35 +44,38 @@ const { about } = home[locale];
     display: flex;
     align-items: flex-end;
     gap: 1.25rem 2rem;
-    margin-bottom: 1.75rem;
+    margin-bottom: 2rem;
   }
   .head-row :global(.about-photo) {
-    width: 9.5rem;
-    height: 9.5rem;
+    width: 8rem;
+    height: 8rem;
   }
   .head-row :global(h2) {
     margin-bottom: 0;
   }
   .about {
     display: grid;
-    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-    gap: 2rem 4rem;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    gap: 2rem clamp(2rem, 6vw, 6rem);
     align-items: start;
   }
   .text p {
-    margin: 0 0 1rem;
-    font-size: 1.125rem;
-    line-height: 1.7;
+    margin: 0 0 1.25rem;
+    font-size: clamp(1.125rem, 1.8vw, 1.3125rem);
+    line-height: 1.65;
+    letter-spacing: -0.01em;
+    color: var(--ink);
     max-width: 40rem;
   }
   .text p:last-child {
     margin-bottom: 0;
   }
   .now {
-    border: 1px solid var(--line);
-    border-left: 3px solid var(--accent);
-    background: var(--surface);
-    padding: 1rem 1.25rem;
+    padding-top: 0.5rem;
+  }
+  .now-label {
+    font-weight: 600;
+    color: var(--accent);
   }
   .now p {
     font-size: 0.9375rem;
@@ -85,12 +88,16 @@ const { about } = home[locale];
     .about {
       grid-template-columns: 1fr;
     }
+    .now {
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+    }
     .head-row {
       align-items: center;
     }
     .head-row :global(.about-photo) {
-      width: 5.5rem;
-      height: 5.5rem;
+      width: 5rem;
+      height: 5rem;
     }
   }
 </style>

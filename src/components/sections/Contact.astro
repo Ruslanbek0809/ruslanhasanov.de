@@ -20,8 +20,8 @@ const cvs = allCvs();
 
 <section class="block contact-block" id="contact" aria-labelledby="h-contact">
   <div class="wrap">
-    <div class="contact grid-paper">
-      <SectionHead num="07" eyebrow={contact.eyebrow} heading={contact.heading} id="h-contact" />
+    <div class="contact">
+      <SectionHead heading={contact.heading} id="h-contact" />
       <p>{contact.invitation}</p>
       {contact.note && <p class="note">{contact.note}</p>}
       <a class="mail" href={`mailto:${site.email}`}>{site.email}</a>
@@ -49,28 +49,33 @@ const cvs = allCvs();
 
 <style>
   .contact-block {
-    border-bottom: 0;
+    padding-bottom: clamp(4rem, 9vw, 7rem);
   }
-  .contact {
-    border: 1px solid var(--line);
-    background-color: var(--surface);
-    padding: clamp(1.5rem, 5vw, 3rem);
+  .contact :global(h2) {
+    font-size: clamp(2rem, 4.6vw, 3.25rem);
+    margin-bottom: 1.25rem;
   }
   .contact p {
-    font-size: 1.125rem;
+    font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
     max-width: 38rem;
-    margin: 0 0 1.5rem;
+    margin: 0 0 1.75rem;
   }
   .contact .note {
     font-size: 0.9375rem;
     color: var(--muted);
-    margin-top: -0.75rem;
+    margin-top: -1rem;
   }
   .mail {
     display: inline-block;
-    font: 500 clamp(1rem, 3.6vw, 1.75rem)/1.3 var(--mono);
+    font: 700 clamp(1.25rem, 4.4vw, 2.5rem)/1.2 var(--sans);
+    letter-spacing: -0.03em;
     color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.18em;
     overflow-wrap: anywhere;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .mail:hover {
+    text-decoration-thickness: 3px;
   }
 </style>

@@ -24,7 +24,7 @@ const navItems = [
 <header class="site-header">
   <div class="wrap bar">
     <a class="brand" href={pagePath('home', locale)} aria-label={t.homeLink}>
-      <span class="mark" aria-hidden="true">RH</span><span>Ruslan Hasanov</span>
+      <span>Ruslan Hasanov</span>
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{t.menu}</button>
     <nav class="nav" id="site-nav" aria-label={t.navLabel}>
@@ -86,43 +86,32 @@ const navItems = [
     top: 0;
     z-index: 20;
     background: var(--bg);
-    background: color-mix(in srgb, var(--bg) 92%, transparent);
-    backdrop-filter: blur(8px);
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
   }
   .bar {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem;
     min-height: var(--header-h);
   }
   .brand {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
     text-decoration: none;
     margin-right: auto;
-    font-weight: 600;
-  }
-  .mark {
-    display: grid;
-    place-items: center;
-    width: 2rem;
-    height: 2rem;
-    border: 1px solid var(--ink);
-    font: 500 0.8rem var(--mono);
+    font: 700 1.0625rem/1 var(--sans);
+    letter-spacing: -0.02em;
+    color: var(--ink);
   }
   .nav ul {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.75rem;
     list-style: none;
     margin: 0;
     padding: 0;
   }
   .nav a {
-    font: 500 0.8125rem var(--mono);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font: 500 0.9375rem var(--sans);
     text-decoration: none;
     color: var(--muted);
   }
@@ -130,13 +119,14 @@ const navItems = [
     color: var(--ink);
   }
   .lang {
-    font: 500 0.8125rem var(--mono);
+    font: 500 0.875rem var(--sans);
     color: var(--muted);
     display: flex;
-    gap: 0.35rem;
+    gap: 0.4rem;
   }
   .lang [aria-current] {
     color: var(--ink);
+    font-weight: 600;
   }
   .lang a {
     text-decoration: none;
@@ -145,17 +135,21 @@ const navItems = [
     color: var(--ink);
     text-decoration: underline;
   }
+  .header-cv {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.875rem;
+  }
   .nav-cv {
     display: none;
   }
   .menu-toggle {
     display: none;
-    font: 500 0.8125rem var(--mono);
-    text-transform: uppercase;
+    font: 600 0.875rem var(--sans);
     background: var(--surface);
     color: var(--ink);
     border: 1px solid var(--line);
-    padding: 0.5rem 0.7rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.8rem;
     cursor: pointer;
   }
   @media (max-width: 880px) {
@@ -164,9 +158,9 @@ const navItems = [
     }
     .bar {
       flex-wrap: wrap;
-      gap: 0.75rem;
-      padding-top: 0.6rem;
-      padding-bottom: 0.6rem;
+      gap: 0.75rem 1rem;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
     }
     .header-cv {
       display: none;
@@ -185,9 +179,10 @@ const navItems = [
     }
     .nav li a {
       display: block;
-      padding: 0.75rem 0;
+      padding: 0.8rem 0;
       border-top: 1px solid var(--line);
       color: var(--ink);
+      font-size: 1rem;
     }
     .nav-cv {
       display: list-item;

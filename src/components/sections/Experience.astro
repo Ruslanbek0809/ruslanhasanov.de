@@ -14,7 +14,7 @@ const { experience } = home[locale];
 
 <section class="block" id="experience" aria-labelledby="h-experience">
   <div class="wrap">
-    <SectionHead num="05" eyebrow={experience.eyebrow} heading={experience.heading} id="h-experience" />
+    <SectionHead heading={experience.heading} id="h-experience" />
     <p class="legend">
       <span><i class="mk" aria-hidden="true"></i>{experience.legend.work}</span>
       <span><i class="mk mk--study" aria-hidden="true"></i>{experience.legend.study}</span>
@@ -80,26 +80,26 @@ const { experience } = home[locale];
   .legend {
     display: flex;
     gap: 1.25rem;
-    font: 400 0.75rem var(--mono);
+    font-size: 0.875rem;
     color: var(--muted);
-    margin: -1rem 0 1.5rem;
+    margin: -1.25rem 0 1.5rem;
   }
   .legend span {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.45rem;
   }
   .mk {
-    width: 0.625rem;
-    height: 0.625rem;
+    width: 0.5625rem;
+    height: 0.5625rem;
+    border-radius: 50%;
     border: 2px solid var(--accent);
     background: var(--accent);
     display: inline-block;
     flex: none;
   }
   .mk--study {
-    background: var(--surface);
-    border-radius: 50%;
+    background: var(--bg);
   }
   .tl {
     list-style: none;
@@ -110,27 +110,31 @@ const { experience } = home[locale];
   .tl::before {
     content: '';
     position: absolute;
-    left: calc(10rem + 1rem + 4px);
-    top: 0.6rem;
-    bottom: 0.6rem;
+    left: calc(9.5rem + 1.25rem + 4px);
+    top: 0.75rem;
+    bottom: 0.75rem;
     width: 1px;
     background: var(--line);
   }
   .tl li {
     display: grid;
-    grid-template-columns: 10rem 0.625rem minmax(0, 1fr);
-    gap: 0 1rem;
-    padding: 0.55rem 0;
+    grid-template-columns: 9.5rem 0.5625rem minmax(0, 1fr);
+    gap: 0 1.25rem;
+    padding: 0.5rem 0;
     align-items: start;
   }
   .tl .period {
-    font: 400 0.8125rem/1.6rem var(--mono);
+    font-size: 0.875rem;
+    line-height: 1.7rem;
     color: var(--muted);
     font-variant-numeric: tabular-nums;
   }
   .tl .mk {
-    margin-top: 0.49rem;
+    margin-top: 0.6rem;
     position: relative;
+  }
+  .tl .what {
+    line-height: 1.7rem;
   }
   .tl b {
     font-weight: 600;
@@ -141,33 +145,37 @@ const { experience } = home[locale];
   .lower {
     display: grid;
     grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-    gap: 2rem 3rem;
-    margin-top: 3rem;
+    gap: 2.5rem clamp(2rem, 5vw, 4.5rem);
+    margin-top: 4rem;
   }
   .sub-head {
-    font: 500 0.75rem var(--mono);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--muted);
-    margin: 0 0 0.75rem;
+    font-size: 1.1875rem;
+    margin: 0 0 0.5rem;
   }
   .edu {
     list-style: none;
     margin: 0;
     padding: 0;
-    border-top: 1px solid var(--ink);
   }
   .edu li {
-    padding: 1rem 0;
+    padding: 1.1rem 0;
     border-bottom: 1px solid var(--line);
     display: flex;
     flex-direction: column;
-    gap: 0.15rem;
+    gap: 0.1rem;
+  }
+  .edu li:last-child {
+    border-bottom: 0;
   }
   .edu .period,
   .award .period {
-    font: 400 0.8125rem/1.6 var(--mono);
+    font-size: 0.875rem;
+    line-height: 1.6;
     color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .edu b {
+    font-weight: 600;
   }
   .edu .org {
     font-size: 0.9375rem;
@@ -180,27 +188,30 @@ const { experience } = home[locale];
     list-style: none;
     margin: 0;
     padding: 0;
-    display: grid;
-    gap: 1rem;
   }
   .award {
     display: flex;
     gap: 0.75rem;
     align-items: flex-start;
-    border: 1px solid var(--line);
-    background: var(--surface);
-    padding: 0.9rem 1rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--line);
     font-size: 0.9375rem;
+  }
+  .award:last-child {
+    border-bottom: 0;
   }
   .award > span {
     display: flex;
     flex-direction: column;
   }
+  .award b {
+    font-weight: 600;
+  }
   .award :global(.award-icon) {
-    width: 1.25rem;
-    height: 1.25rem;
-    color: var(--accent);
-    margin-top: 0.15rem;
+    width: 1.125rem;
+    height: 1.125rem;
+    color: var(--muted);
+    margin-top: 0.2rem;
     flex: none;
   }
   .detail {
@@ -217,7 +228,8 @@ const { experience } = home[locale];
       left: 4px;
     }
     .tl li {
-      grid-template-columns: 0.625rem minmax(0, 1fr);
+      grid-template-columns: 0.5625rem minmax(0, 1fr);
+      gap: 0 1rem;
     }
     .tl .period {
       grid-column: 2;
@@ -225,10 +237,11 @@ const { experience } = home[locale];
     }
     .tl .mk {
       grid-column: 1;
-      grid-row: 1 / span 2;
+      grid-row: 1;
     }
     .tl .what {
       grid-column: 2;
+      line-height: 1.55;
     }
   }
 </style>

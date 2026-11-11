@@ -202,9 +202,9 @@ svg.i {
   line-height: 1.7;
   color: var(--muted);
 }
-.tags li + li::before {
+.tags li:not(:last-child)::after {
   content: '·';
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 /* Project status (grade, team size, in progress): plain text, no frame */
@@ -223,7 +223,7 @@ svg.i {
 
 /* Section frame */
 .block {
-  padding: clamp(3.5rem, 8vw, 6.5rem) 0;
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0;
 }
 
 /* Long-form text from Markdown (case studies, legal pages) */
