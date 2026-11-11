@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <style>
-    rect { fill: #f3f5f7; stroke: #0e1621; }
-    text { fill: #0e1621; }
+    rect { fill: #2563eb; }
+    text { fill: #ffffff; }
     @media (prefers-color-scheme: dark) {
-      rect { fill: #0b1017; stroke: #dde5ee; }
-      text { fill: #dde5ee; }
+      rect { fill: #5c95f7; }
+      text { fill: #06070a; }
     }
   </style>
-  <rect x="1" y="1" width="30" height="30" stroke-width="2" />
-  <text x="16" y="21" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="13" font-weight="500">RH</text>
+  <rect width="32" height="32" rx="8" />
+  <text x="16" y="21.5" text-anchor="middle" font-family="Sora, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" letter-spacing="-0.5">RH</text>
 </svg>
