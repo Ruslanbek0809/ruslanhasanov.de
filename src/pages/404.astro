@@ -9,7 +9,7 @@ const de = ui.de.notFound;
 ---
 
 <BaseLayout locale="en" title={en.title} description={en.description} noindex>
-  <section class="nf grid-paper" aria-labelledby="nf-title">
+  <section class="nf" aria-labelledby="nf-title">
     <div class="wrap">
       <p class="code" aria-hidden="true">404</p>
       <h1 id="nf-title">{en.heading}</h1>
@@ -28,7 +28,6 @@ const de = ui.de.notFound;
 
 <style>
   .nf {
-    border-bottom: 1px solid var(--line);
     min-height: calc(100vh - var(--header-h) - 6rem);
     display: flex;
     align-items: center;
@@ -39,14 +38,14 @@ const de = ui.de.notFound;
     padding-bottom: clamp(3rem, 8vw, 6rem);
   }
   .code {
-    font: 500 clamp(4rem, 14vw, 8rem)/1 var(--mono);
-    letter-spacing: -0.04em;
-    color: var(--accent);
+    font: 700 clamp(4rem, 14vw, 8rem)/1 var(--sans);
+    letter-spacing: -0.05em;
+    color: var(--muted);
     margin: 0 0 1rem;
   }
   h1 {
-    font: 600 clamp(2rem, 5vw, 3rem)/1.1 var(--sans);
-    letter-spacing: -0.03em;
+    font: 700 clamp(2rem, 5vw, 3rem)/1.1 var(--sans);
+    letter-spacing: -0.035em;
     margin: 0 0 1rem;
   }
   .lead {

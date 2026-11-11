@@ -39,37 +39,37 @@ const t = ui[locale].legal;
 
 <style>
   .legal {
-    padding-top: clamp(2rem, 5vw, 3.5rem);
-    padding-bottom: clamp(3rem, 7vw, 5rem);
+    padding-top: clamp(2.5rem, 6vw, 4.5rem);
+    padding-bottom: clamp(3.5rem, 8vw, 6rem);
   }
   .draft {
     display: flex;
     flex-wrap: wrap;
     gap: 0.25rem 1rem;
     align-items: baseline;
-    max-width: 44rem;
-    border: 2px solid var(--amber);
-    background: var(--surface);
-    padding: 0.85rem 1.1rem;
-    margin-bottom: 2rem;
+    max-width: 42rem;
+    border: 1px solid var(--amber);
+    border-radius: var(--radius);
+    background: var(--amber-tint);
+    padding: 0.9rem 1.15rem;
+    margin-bottom: 2.5rem;
   }
   .draft strong {
-    font: 600 0.875rem var(--mono);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font: 600 0.9375rem var(--sans);
     color: var(--amber);
   }
   .draft span {
     font-size: 0.9375rem;
+    color: var(--ink);
   }
   h1 {
-    font: 600 clamp(2rem, 5vw, 3rem)/1.1 var(--sans);
-    letter-spacing: -0.03em;
-    margin: 0 0 2rem;
+    font: 700 clamp(2.25rem, 5.5vw, 3.5rem)/1.06 var(--sans);
+    letter-spacing: -0.04em;
+    margin: 0 0 2.25rem;
   }
   .updated {
-    font: 400 0.8125rem var(--mono);
+    font-size: 0.875rem;
     color: var(--muted);
-    margin: 2.5rem 0 0;
+    margin: 3rem 0 0;
   }
 </style>
