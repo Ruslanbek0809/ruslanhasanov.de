@@ -43,7 +43,7 @@ This website sets no cookies and stores nothing in your browser's local storage 
 
 ## 5. Fonts
 
-The fonts (IBM Plex Sans and IBM Plex Mono) are served from the same server as this website. Loading a page does not connect to Google Fonts or any other third party.
+The font (Sora) is served from the same server as this website. Loading a page does not connect to Google Fonts or any other third party.
 
 ## 6. Contact by email
 

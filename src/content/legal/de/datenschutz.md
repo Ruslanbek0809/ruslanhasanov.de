@@ -41,7 +41,7 @@ Diese Website setzt keine Cookies und speichert nichts im lokalen Speicher Ihres
 
 ## 5. Schriftarten
 
-Die Schriftarten (IBM Plex Sans und IBM Plex Mono) liegen auf demselben Server wie diese Website. Beim Laden der Seite wird keine Verbindung zu Google Fonts oder anderen Drittanbietern aufgebaut.
+Die Schriftart (Sora) liegt auf demselben Server wie diese Website. Beim Laden der Seite wird keine Verbindung zu Google Fonts oder anderen Drittanbietern aufgebaut.
 
 ## 6. Kontakt per E-Mail
 
