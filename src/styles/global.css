@@ -1,39 +1,39 @@
-/* Direction B · Instrument: engineering spec-sheet, mono for data, hairline grid.
-   Design tokens and shared base styles; component styles live in each component. */
+/* Design tokens and shared base styles; component styles live in each component.
+   One typeface (Sora), one accent (blue), hierarchy from size and weight rather than labels and boxes. */
 
 :root {
-  --bg: #f3f5f7;
+  --bg: #f9fafb;
   --surface: #ffffff;
-  --ink: #0e1621;
-  --muted: #4f5b69;
-  --line: #d5dbe2;
-  --grid: rgba(14, 22, 33, 0.05);
-  --accent: #0b6e66;
-  --accent-soft: #e2f1ef;
+  --tint: #f1f4f8;
+  --ink: #0b0f13;
+  --ink-2: #334155;
+  --muted: #5c6a7e;
+  --line: #e0e5eb;
+  --accent: #2563eb;
   --on-accent: #ffffff;
   --amber: #8a5a00;
-  --bar-base: #b9c2cc;
+  --amber-tint: #fdf7ea;
   --photo-filter: grayscale(1) contrast(1.04);
-  --sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --sans: 'Sora', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --radius: 0.75rem;
   --gutter: clamp(1rem, 4vw, 2.5rem);
-  --header-h: 3.75rem;
+  --header-h: 4rem;
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0b1017;
-    --surface: #111923;
-    --ink: #dde5ee;
-    --muted: #8d9aab;
-    --line: #233040;
-    --grid: rgba(221, 229, 238, 0.045);
-    --accent: #55c7b8;
-    --accent-soft: #12302e;
-    --on-accent: #06201d;
+    --bg: #06070a;
+    --surface: #0c0f14;
+    --tint: #10141b;
+    --ink: #eef1f5;
+    --ink-2: #c3cad5;
+    --muted: #8a96a8;
+    --line: #1a212b;
+    --accent: #5c95f7;
+    --on-accent: #06070a;
     --amber: #e8b14a;
-    --bar-base: #3a4758;
+    --amber-tint: #14110a;
     /* a white studio background glares on a dark page: dim it */
     --photo-filter: grayscale(1) brightness(0.78) contrast(1.12);
   }
@@ -48,7 +48,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
-  scroll-padding-top: 4.5rem;
+  scroll-padding-top: 5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -66,9 +66,19 @@ html {
 body {
   margin: 0;
   background: var(--bg);
-  color: var(--ink);
-  font: 400 1rem/1.6 var(--sans);
+  color: var(--ink-2);
+  font: 400 1rem/1.7 var(--sans);
   overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+b,
+strong {
+  color: var(--ink);
 }
 
 img {
@@ -78,12 +88,14 @@ img {
 
 a {
   color: inherit;
-  text-underline-offset: 0.2em;
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1px;
 }
 
 :focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 .skip {
@@ -94,7 +106,8 @@ a {
   background: var(--ink);
   color: var(--bg);
   padding: 0.5rem 0.75rem;
-  font: 500 0.875rem var(--mono);
+  border-radius: 0.5rem;
+  font: 600 0.875rem var(--sans);
 }
 .skip:focus {
   left: 0.5rem;
@@ -113,37 +126,28 @@ a {
 }
 
 .wrap {
-  max-width: 76rem;
+  max-width: 72rem;
   margin: 0 auto;
   padding: 0 var(--gutter);
 }
 
-.mono {
-  font-family: var(--mono);
-}
-
+/* Small run-in label: sentence case, set by weight, not by caps or tracking */
 .eyebrow {
-  font: 500 0.75rem/1.4 var(--mono);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--muted);
+  font: 600 0.875rem/1.4 var(--sans);
+  color: var(--ink);
   margin: 0 0 0.5rem;
-}
-.eyebrow b {
-  color: var(--accent);
-  font-weight: 500;
 }
 
 h2 {
-  font: 600 clamp(1.5rem, 3vw, 2rem)/1.2 var(--sans);
-  letter-spacing: -0.015em;
-  margin: 0 0 1.75rem;
+  font: 700 clamp(1.75rem, 3.6vw, 2.5rem)/1.15 var(--sans);
+  letter-spacing: -0.025em;
+  margin: 0 0 2rem;
 }
 
 h3 {
-  font: 600 1.1875rem/1.3 var(--sans);
+  font: 600 1.1875rem/1.35 var(--sans);
+  letter-spacing: -0.01em;
   margin: 0 0 0.5rem;
-  letter-spacing: -0.005em;
 }
 
 svg.i {
@@ -157,16 +161,18 @@ svg.i {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font: 500 0.875rem/1 var(--sans);
-  padding: 0.7rem 1rem;
+  font: 600 0.9375rem/1 var(--sans);
+  padding: 0.8rem 1.15rem;
   border: 1px solid var(--line);
+  border-radius: 0.6rem;
   background: var(--surface);
   color: var(--ink);
   text-decoration: none;
   white-space: nowrap;
+  transition: border-color 0.15s, background-color 0.15s;
 }
 .btn:hover {
-  border-color: var(--ink);
+  border-color: var(--muted);
 }
 .btn--primary {
   background: var(--accent);
@@ -174,7 +180,8 @@ svg.i {
   color: var(--on-accent);
 }
 .btn--primary:hover {
-  border-color: var(--ink);
+  background: color-mix(in srgb, var(--accent) 86%, var(--ink));
+  border-color: color-mix(in srgb, var(--accent) 86%, var(--ink));
 }
 
 .actions {
@@ -183,81 +190,52 @@ svg.i {
   gap: 0.75rem;
 }
 
-/* Tag list (tools, skills) */
+/* Tool and skill lists: plain text joined by middle dots */
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem;
+  gap: 0 0.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--muted);
 }
-.tags li {
-  font: 400 0.75rem/1.3 var(--mono);
-  padding: 0.3rem 0.5rem;
-  background: var(--bg);
-  border: 1px solid var(--line);
+.tags li + li::before {
+  content: '·';
+  margin-right: 0.5rem;
 }
 
+/* Project status (grade, team size, in progress): plain text, no frame */
 .chip {
-  font: 500 0.6875rem/1 var(--mono);
-  padding: 0.3rem 0.45rem;
-  border: 1px solid currentColor;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  color: var(--ink);
   white-space: nowrap;
 }
-.chip--progress {
-  color: var(--amber);
-}
-.chip--ok {
-  color: var(--accent);
-}
 
-/* Availability badge */
+/* Availability: one line of accent text */
 .status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font: 500 0.8125rem var(--mono);
-  border: 1px solid var(--line);
-  background: var(--surface);
-  padding: 0.35rem 0.7rem;
+  font: 600 0.9375rem/1.4 var(--sans);
+  color: var(--accent);
   margin: 0 0 1.25rem;
-}
-.status::before {
-  content: '';
-  width: 0.5rem;
-  height: 0.5rem;
-  background: var(--accent);
-  border-radius: 50%;
-  box-shadow: 0 0 0 3px var(--accent-soft);
-  flex: none;
 }
 
 /* Section frame */
 .block {
-  padding: clamp(3rem, 7vw, 5rem) 0;
-  border-bottom: 1px solid var(--line);
-}
-
-/* Grid-paper background used by the hero and contact panel */
-.grid-paper {
-  background-image: linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 2rem 2rem;
-  background-position: -1px -1px;
+  padding: clamp(3.5rem, 8vw, 6.5rem) 0;
 }
 
 /* Long-form text from Markdown (case studies, legal pages) */
 .prose {
-  max-width: 44rem;
+  max-width: 42rem;
   font-size: 1.0625rem;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 .prose h2 {
   font-size: clamp(1.25rem, 2.4vw, 1.5rem);
-  margin: 2.5rem 0 0.75rem;
+  letter-spacing: -0.015em;
+  margin: 2.75rem 0 0.75rem;
 }
 .prose h2:first-child {
   margin-top: 0;
@@ -274,18 +252,18 @@ svg.i {
   margin-top: 0.4rem;
 }
 .prose li::marker {
-  color: var(--accent);
+  color: var(--muted);
 }
 .prose a {
   color: var(--accent);
 }
 .prose blockquote {
   margin: 0 0 1rem;
-  padding: 0.6rem 1rem;
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--amber);
-  background: var(--surface);
-  font: 400 0.875rem/1.6 var(--mono);
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius);
+  background: var(--tint);
+  font-size: 0.9375rem;
+  line-height: 1.65;
   color: var(--muted);
 }
 .prose blockquote p {
@@ -295,10 +273,10 @@ svg.i {
 /* Profile photo: one crop rule that survives a different headshot (head in the upper third) */
 .ph {
   margin: 0;
-  border: 1px solid var(--line);
-  background: var(--surface);
-  padding: 3px;
   flex: none;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--tint);
 }
 .ph img {
   width: 100%;
@@ -310,27 +288,25 @@ svg.i {
 }
 
 /* Hero: parts shared by the three variants in src/components/heroes/ */
-.hero {
-  border-bottom: 1px solid var(--line);
-}
 .hero > .wrap {
-  padding-top: clamp(2rem, 6vw, 4.5rem);
-  padding-bottom: clamp(2rem, 6vw, 4.5rem);
+  padding-top: clamp(2.5rem, 7vw, 6rem);
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
 }
 .hero h1 {
-  font: 600 clamp(2.5rem, 7vw, 4.5rem)/1 var(--sans);
-  letter-spacing: -0.035em;
-  margin: 0 0 1rem;
+  font: 700 clamp(2.5rem, 6.4vw, 4.5rem)/1.02 var(--sans);
+  letter-spacing: -0.04em;
+  margin: 0 0 0.75rem;
 }
 .hero .role {
-  font: 400 clamp(0.8125rem, 1.6vw, 0.9375rem)/1.6 var(--mono);
+  font: 400 clamp(0.9375rem, 1.5vw, 1.0625rem)/1.5 var(--sans);
   color: var(--muted);
   margin: 0;
 }
 .hero .pitch {
-  font-size: clamp(1.0625rem, 2vw, 1.3125rem);
-  line-height: 1.55;
-  max-width: 36rem;
+  font: 500 clamp(1.25rem, 2.3vw, 1.625rem)/1.4 var(--sans);
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  max-width: 34rem;
   margin: 0;
 }
 /* Phone order: name, then facts, then pitch and buttons, so the facts land in the first screen */
@@ -338,7 +314,7 @@ svg.i {
   .hero .stack {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
   .hero .stack .flat {
     display: contents;
