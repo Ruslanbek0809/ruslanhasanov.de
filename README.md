@@ -83,7 +83,7 @@ src/
   i18n/                 routes per language, interface strings
   components/           header, footer, heroes/, sections/, case-study and legal page templates
   layouts/BaseLayout    <head> (SEO, hreflang, Open Graph, JSON-LD), header, footer
-  styles/               global.css (tokens, base), fonts.css (self-hosted IBM Plex)
+  styles/               global.css (tokens, base), fonts.css (self-hosted Sora)
   pages/                routes: /, /work/[slug]/, /imprint/, /privacy/, /de/...
 scripts/                link checker, OG image source
 ```
