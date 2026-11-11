@@ -37,7 +37,7 @@ Mit Cloudflare besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO.
 
 ## 4. Keine Cookies, kein Tracking
 
-Diese Website setzt keine Cookies und speichert nichts im lokalen Speicher Ihres Browsers (Local Storage, Session Storage). Es gibt keine Reichweitenmessung, keine Profilbildung und keine Werbung.
+Diese Website setzt keine Cookies. Wenn Sie die Schaltfläche für das helle oder dunkle Design in der Kopfzeile nutzen, wird Ihre Auswahl im lokalen Speicher Ihres Browsers abgelegt (ein Eintrag `theme` mit dem Wert `light` oder `dark`), damit die Seite beim nächsten Besuch gleich aussieht. Der Eintrag bleibt auf Ihrem Gerät, wird weder an mich noch an Dritte übertragen und entsteht erst, wenn Sie die Schaltfläche anklicken. Er ist unbedingt erforderlich, um die von Ihnen gewünschte Einstellung bereitzustellen (§ 25 Abs. 2 Nr. 2 TDDDG); Sie können ihn entfernen, indem Sie die Websitedaten in Ihrem Browser löschen. Es gibt keine Reichweitenmessung, keine Profilbildung und keine Werbung.
 
 ## 5. Schriftarten
 

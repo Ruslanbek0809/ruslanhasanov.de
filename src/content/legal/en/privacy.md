@@ -39,7 +39,7 @@ A data processing agreement under Art. 28 GDPR is in place with Cloudflare. Clo
 
 ## 4. No cookies, no tracking
 
-This website sets no cookies and stores nothing in your browser's local storage (Local Storage, Session Storage). There is no audience measurement, no profiling and no advertising.
+This website sets no cookies. If you use the light/dark button in the header, your choice is saved in your browser's local storage (one entry, `theme`, with the value `light` or `dark`) so the site looks the same on your next visit. The entry stays on your device, is never sent to me or to anyone else, and is only created when you click the button. It is strictly necessary to provide the setting you asked for (§ 25 (2) no. 2 TDDDG); you can remove it by clearing this website's data in your browser. There is no audience measurement, no profiling and no advertising.
 
 ## 5. Fonts
 

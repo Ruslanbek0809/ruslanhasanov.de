@@ -21,8 +21,10 @@
   color-scheme: light dark;
 }
 
+/* Dark tokens apply when the system asks for dark and the visitor has not chosen light,
+   or when the visitor chose dark with the header button (data-theme on <html>). Keep both blocks equal. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --bg: #06070a;
     --surface: #0c0f14;
     --tint: #10141b;
@@ -37,6 +39,27 @@
     /* a white studio background glares on a dark page: dim it */
     --photo-filter: grayscale(1) brightness(0.78) contrast(1.12);
   }
+}
+
+:root[data-theme='dark'] {
+  --bg: #06070a;
+  --surface: #0c0f14;
+  --tint: #10141b;
+  --ink: #eef1f5;
+  --ink-2: #c3cad5;
+  --muted: #8a96a8;
+  --line: #1a212b;
+  --accent: #5c95f7;
+  --on-accent: #06070a;
+  --amber: #e8b14a;
+  --amber-tint: #14110a;
+  /* a white studio background glares on a dark page: dim it */
+  --photo-filter: grayscale(1) brightness(0.78) contrast(1.12);
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
 }
 
 *,

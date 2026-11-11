@@ -6,6 +6,7 @@ export interface UiStrings {
   navLabel: string;
   menu: string;
   languageLabel: string;
+  themeToggle: string;
   switchTo: string;
   nav: { work: string; about: string; experience: string; contact: string };
   downloadCv: string;
@@ -46,6 +47,7 @@ export const ui: Record<Locale, UiStrings> = {
     navLabel: 'Main',
     menu: 'Menu',
     languageLabel: 'Language',
+    themeToggle: 'Switch between light and dark theme',
     switchTo: 'Deutsche Version',
     nav: { work: 'Work', about: 'About', experience: 'Experience', contact: 'Contact' },
     downloadCv: 'Download CV',
@@ -88,6 +90,7 @@ export const ui: Record<Locale, UiStrings> = {
     navLabel: 'Hauptnavigation',
     menu: 'Menü',
     languageLabel: 'Sprache',
+    themeToggle: 'Zwischen hellem und dunklem Design wechseln',
     switchTo: 'English version',
     nav: { work: 'Projekte', about: 'Über mich', experience: 'Werdegang', contact: 'Kontakt' },
     downloadCv: 'Lebenslauf herunterladen',

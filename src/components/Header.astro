@@ -60,6 +60,15 @@ const navItems = [
         ))
       }
     </div>
+    <button class="theme-toggle" type="button" aria-label={t.themeToggle} title={t.themeToggle}>
+      <svg class="icon-moon" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M13.5 9.5A5.75 5.75 0 0 1 6.5 2.5a5.75 5.75 0 1 0 7 7Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 16 16" aria-hidden="true">
+        <circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+        <path d="M8 1v1.75M8 13.25V15M1 8h1.75M13.25 8H15M3.05 3.05l1.24 1.24M11.71 11.71l1.24 1.24M3.05 12.95l1.24-1.24M11.71 4.29l1.24-1.24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+      </svg>
+    </button>
     {cv && (
       <a class="btn btn--primary header-cv" href={cv} download>
         <Icon name="download" />
@@ -77,6 +86,16 @@ const navItems = [
     t.addEventListener('click', () => set(t.getAttribute('aria-expanded') !== 'true'));
     n.addEventListener('click', (e) => { if (e.target.closest('a')) set(false); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && t.getAttribute('aria-expanded') === 'true') { set(false); t.focus(); } });
+  })();
+  (() => {
+    const b = document.querySelector('.theme-toggle'), r = document.documentElement;
+    if (!b) return;
+    b.addEventListener('click', () => {
+      const now = r.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const next = now === 'dark' ? 'light' : 'dark';
+      r.dataset.theme = next;
+      try { localStorage.setItem('theme', next); } catch {}
+    });
   })();
 </script>
 
@@ -135,6 +154,49 @@ const navItems = [
     color: var(--ink);
     text-decoration: underline;
   }
+  .theme-toggle {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-left: -0.75rem;
+    padding: 0;
+    background: none;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  .theme-toggle:hover {
+    color: var(--ink);
+  }
+  .theme-toggle svg {
+    width: 1rem;
+    height: 1rem;
+  }
+  .icon-sun {
+    display: none;
+  }
+  :global(:root[data-theme='dark']) .icon-sun {
+    display: block;
+  }
+  :global(:root[data-theme='dark']) .icon-moon {
+    display: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .icon-sun {
+      display: block;
+    }
+    :global(:root:not([data-theme='light'])) .icon-moon {
+      display: none;
+    }
+  }
+  /* The button needs the script; without it the system setting decides. */
+  @media (scripting: none) {
+    .theme-toggle {
+      display: none;
+    }
+  }
   .header-cv {
     padding: 0.6rem 0.9rem;
     font-size: 0.875rem;
@@ -155,6 +217,9 @@ const navItems = [
   @media (max-width: 880px) {
     .menu-toggle {
       display: inline-block;
+    }
+    .theme-toggle {
+      margin-left: 0;
     }
     .bar {
       flex-wrap: wrap;
