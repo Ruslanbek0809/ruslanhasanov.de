@@ -20,7 +20,7 @@ const cells = [
 ];
 ---
 
-<section class="hero grid-paper" aria-labelledby="hero-name">
+<section class="hero" aria-labelledby="hero-name">
   <div class="wrap layout stack">
     <div class="intro o1">
       <p class="status">{hero.availability}</p>
@@ -33,10 +33,9 @@ const cells = [
       <Photo locale={locale} class="strip-photo" sizes="(max-width: 760px) 104px, 136px" />
       <dl class="cells">
         {
-          cells.map((c, i) => (
+          cells.map((c) => (
             <div class:list={['cell', c.cls]}>
               <dt>
-                <b>{String(i + 1).padStart(2, '0')}</b>
                 {c.label}
               </dt>
               <dd>
@@ -75,6 +74,8 @@ const cells = [
     gap: 1px;
     background: var(--line);
     border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
   }
   .cells {
     display: contents;
@@ -100,15 +101,8 @@ const cells = [
     gap: 0.4rem;
   }
   dt {
-    font: 400 0.6875rem/1.4 var(--mono);
+    font: 400 0.8125rem/1.4 var(--sans);
     color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  dt b {
-    color: var(--accent);
-    font-weight: 500;
-    margin-right: 0.35rem;
   }
   dd {
     margin: 0;
@@ -117,7 +111,7 @@ const cells = [
   }
   dd strong {
     display: block;
-    font: 500 1.0625rem/1.3 var(--sans);
+    font: 600 1.0625rem/1.3 var(--sans);
     margin-bottom: 0.15rem;
   }
   dd small {

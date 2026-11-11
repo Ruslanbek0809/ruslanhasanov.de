@@ -14,7 +14,7 @@ const { locale } = Astro.props;
 const { hero, highlights } = home[locale];
 ---
 
-<section class="hero grid-paper" aria-labelledby="hero-name">
+<section class="hero" aria-labelledby="hero-name">
   <div class="wrap layout stack">
     <div class="lead flat">
       <div class="intro o1">
@@ -71,6 +71,8 @@ const { hero, highlights } = home[locale];
     gap: 1px;
     background: var(--line);
     border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
     margin: 0;
   }
   .readout div {
@@ -83,7 +85,7 @@ const { hero, highlights } = home[locale];
   }
   .readout dd {
     margin: 0;
-    font: 500 clamp(1.5rem, 2.6vw, 1.875rem)/1.1 var(--mono);
+    font: 700 clamp(1.5rem, 2.6vw, 1.875rem)/1.1 var(--sans);
     letter-spacing: -0.03em;
     white-space: nowrap;
   }

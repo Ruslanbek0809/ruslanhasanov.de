@@ -6,7 +6,7 @@ import ExternalLink from '../ExternalLink.astro';
 
 interface Props {
   locale: Locale;
-  /** Card header with title and as-of date, plus profile links in the footer (Hero 1). */
+  /** Profile links under the facts (Hero 1). */
   framed?: boolean;
   class?: string;
 }
@@ -16,14 +16,6 @@ const { facts } = home[locale].hero;
 ---
 
 <aside class:list={['facts', className]} aria-label={facts.heading}>
-  {
-    framed && (
-      <div class="facts-head" aria-hidden="true">
-        <span>{facts.heading}</span>
-        <span>{facts.asOf}</span>
-      </div>
-    )
-  }
   <dl class="kv">
     <div>
       <dt>{facts.status.label}</dt>
@@ -54,83 +46,64 @@ const { facts } = home[locale].hero;
 </aside>
 
 <style>
-  .facts {
-    background: var(--surface);
-    border: 1px solid var(--line);
-  }
-  .facts-head {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.6rem 1rem;
-    border-bottom: 1px solid var(--line);
-    font: 400 0.6875rem/1.5 var(--mono);
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
   .kv {
     margin: 0;
-    padding: 0.15rem 1rem;
     font-size: 0.9375rem;
   }
   .kv div {
     display: grid;
-    grid-template-columns: 6.25rem minmax(0, 1fr);
-    gap: 0.75rem;
-    padding: 0.6rem 0;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--line);
   }
-  .kv div + div {
-    border-top: 1px dashed var(--line);
+  .kv div:first-child {
+    padding-top: 0;
   }
   .kv dt {
-    font: 400 0.75rem/1.9 var(--mono);
+    font-size: 0.875rem;
+    line-height: 1.6;
     color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    overflow-wrap: anywhere;
   }
   .kv dd {
     margin: 0;
-    line-height: 1.5;
-    padding-top: 0.1rem;
+    line-height: 1.55;
+    color: var(--ink);
   }
   .hl {
     color: var(--accent);
-    font-weight: 500;
+    font-weight: 600;
   }
   .facts-foot {
     display: flex;
     flex-wrap: wrap;
     gap: 0.25rem 1.25rem;
-    padding: 0.7rem 1rem;
-    border-top: 1px solid var(--line);
-    font: 500 0.8125rem var(--mono);
+    padding-top: 0.9rem;
+    font: 600 0.875rem var(--sans);
   }
   .facts-foot :global(a) {
-    color: var(--accent);
+    color: var(--ink);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.3rem;
   }
   .facts-foot :global(a:hover) {
+    color: var(--accent);
     text-decoration: underline;
   }
+  .facts-foot :global(svg) {
+    color: var(--muted);
+  }
   @media (max-width: 760px) {
-    .kv {
-      font-size: 0.875rem;
-    }
     .kv div {
-      grid-template-columns: 5.5rem minmax(0, 1fr);
-      gap: 0.5rem;
-      padding: 0.45rem 0;
+      grid-template-columns: 4.75rem minmax(0, 1fr);
+      gap: 0.75rem;
+      padding: 0.55rem 0;
     }
-    .kv dt {
-      font-size: 0.6875rem;
-    }
-    .facts-head {
-      display: none;
+    .kv div:first-child {
+      padding-top: 0.55rem;
+      border-top: 1px solid var(--line);
     }
   }
 </style>

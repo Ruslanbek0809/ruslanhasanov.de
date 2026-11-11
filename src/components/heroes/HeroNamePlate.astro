@@ -1,5 +1,5 @@
 ---
-/** Hero 1 "Name plate": small greyscale avatar set with the name; facts card on the right. */
+/** Hero 1 "Name plate": small greyscale photo set with the name; key facts on the right. */
 import { home } from '../../data';
 import type { Locale } from '../../i18n/routes';
 import Photo from '../Photo.astro';
@@ -14,13 +14,13 @@ const { locale } = Astro.props;
 const { hero } = home[locale];
 ---
 
-<section class="hero grid-paper" aria-labelledby="hero-name">
+<section class="hero" aria-labelledby="hero-name">
   <div class="wrap layout stack">
     <div class="lead flat">
       <div class="o1">
         <p class="status">{hero.availability}</p>
         <div class="plate">
-          <Photo locale={locale} class="plate-photo" sizes="(max-width: 760px) 88px, 136px" />
+          <Photo locale={locale} class="plate-photo" sizes="(max-width: 760px) 80px, 120px" />
           <div>
             <h1 id="hero-name">{hero.name}</h1>
             <p class="role">{hero.role}</p>
@@ -39,13 +39,13 @@ const { hero } = home[locale];
   @media (min-width: 761px) {
     .layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 24rem);
-      gap: clamp(2rem, 5vw, 4.5rem);
-      align-items: center;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 21rem);
+      gap: clamp(2.5rem, 6vw, 6rem);
+      align-items: end;
     }
     .lead {
       display: grid;
-      gap: 1.75rem;
+      gap: 2rem;
     }
   }
   .plate {
@@ -54,21 +54,22 @@ const { hero } = home[locale];
     gap: clamp(1rem, 2.5vw, 1.75rem);
   }
   .plate :global(.plate-photo) {
-    width: clamp(5.5rem, 11vw, 8.5rem);
-    height: clamp(5.5rem, 11vw, 8.5rem);
-  }
-  .plate h1 {
-    margin-bottom: 0.6rem;
+    width: clamp(5rem, 9vw, 7.5rem);
+    height: clamp(5rem, 9vw, 7.5rem);
   }
   @media (max-width: 760px) {
     .plate {
-      align-items: flex-start;
+      align-items: center;
     }
     .plate h1 {
-      font-size: 2.25rem;
+      font-size: clamp(2rem, 9.5vw, 2.5rem);
+      margin-bottom: 0.4rem;
     }
     .plate .role {
-      font-size: 0.75rem;
+      font-size: 0.875rem;
+    }
+    .status {
+      margin-bottom: 1rem;
     }
   }
 </style>
