@@ -58,7 +58,7 @@ const home: HomeContent = {
         bars: { reference: 'saisonal naiv', model: 'Chronos-2', ratio: 0.71 },
       },
       { index: '[Experimente]', value: '192', caption: 'LLM-Prognoseexperimente' },
-      { index: '[Reichweite]', value: '20.000+', caption: 'Downloads eines Online-Shops' },
+      { index: '[Reichweite]', value: '55.000+', caption: 'App-Downloads' },
     ],
   },
 

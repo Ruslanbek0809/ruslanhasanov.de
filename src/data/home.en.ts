@@ -58,7 +58,7 @@ const home: HomeContent = {
         bars: { reference: 'seasonal-naive', model: 'Chronos-2', ratio: 0.71 },
       },
       { index: '[experiments]', value: '192', caption: 'LLM forecasting experiments' },
-      { index: '[scale]', value: '20,000+', caption: 'online shop downloads' },
+      { index: '[scale]', value: '55,000+', caption: 'app downloads' },
     ],
   },
 

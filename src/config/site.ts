@@ -22,12 +22,12 @@ export const site = {
   ogImage: '/og.png',
 
   /**
-   * CV downloads. Put the PDF into public/cv/ and set the path, e.g. '/cv/ruslan-hasanov-cv-en.pdf'.
-   * While a value is null, no button for that language is rendered anywhere.
+   * CV downloads, served from public/cv/. The PDFs there are web copies without street address,
+   * phone, date of birth and signature. While a value is null, no button for that language is rendered.
    */
   cv: {
-    en: null,
-    de: null,
+    en: '/cv/ruslan-hasanov-cv-en.pdf',
+    de: '/cv/ruslan-hasanov-lebenslauf-de.pdf',
   } as { en: string | null; de: string | null },
 };
 
