@@ -26,7 +26,7 @@ Dies ist eine private, nicht kommerzielle Portfolio-Website. Sie stellt meinen b
 
 ## Haftung für Inhalte
 
-Die Inhalte dieser Website erstelle ich mit Sorgfalt. Für ihre Richtigkeit, Vollständigkeit und Aktualität kann ich jedoch keine Gewähr übernehmen. Für eigene Inhalte bin ich nach § 7 Abs. 1 DDG nach den allgemeinen Gesetzen verantwortlich.
+Die Inhalte dieser Website erstelle ich mit Sorgfalt. Für ihre Richtigkeit, Vollständigkeit und Aktualität kann ich jedoch keine Gewähr übernehmen. Für eigene Inhalte auf diesen Seiten bin ich nach den allgemeinen Gesetzen verantwortlich.
 
 ## Haftung für Links
 

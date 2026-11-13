@@ -23,7 +23,7 @@ This website is a static portfolio. It sets no cookies, uses no analytics, track
 
 ## 3. Hosting and server log files
 
-This website is delivered through Cloudflare. The provider is Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA.
+This website is hosted on Cloudflare (Cloudflare Workers), and its domain uses Cloudflare's DNS and proxy services. The provider is Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA.
 
 With every request your browser automatically sends data that Cloudflare processes and may store in server log files:
 
@@ -35,7 +35,7 @@ With every request your browser automatically sends data that Cloudflare process
 
 The purpose is to deliver the website and to keep it secure and stable, for example by fending off attacks. The legal basis is Art. 6 (1) (f) GDPR. My legitimate interest is the secure and reliable provision of the website. I do not analyse this data and do not combine it with other data. Cloudflare keeps it, according to its own rules, only as long as needed for these purposes.
 
-A data processing agreement under Art. 28 GDPR is in place with Cloudflare. Cloudflare may also process data in the USA. Cloudflare is certified under the EU-US Data Privacy Framework; transfers rely on the European Commission's adequacy decision (Art. 45 GDPR). More information: [Cloudflare privacy policy](https://www.cloudflare.com/privacypolicy/).
+Cloudflare's Customer Data Processing Addendum, which is part of its terms of service, applies to the processing on my behalf (Art. 28 GDPR). Cloudflare may also process data in the USA. Cloudflare is certified under the EU-US Data Privacy Framework; transfers rely on the European Commission's adequacy decision (Art. 45 GDPR). If the certification lapses, Cloudflare relies on the EU standard contractual clauses (Art. 46 GDPR). More information: [Cloudflare privacy policy](https://www.cloudflare.com/privacypolicy/).
 
 ## 4. No cookies, no tracking
 
@@ -59,7 +59,7 @@ This website links to my profiles on GitHub and LinkedIn. Data is only sent to t
 
 You have the right of access (Art. 15 GDPR), rectification (Art. 16 GDPR), erasure (Art. 17 GDPR), restriction of processing (Art. 18 GDPR) and data portability (Art. 20 GDPR). You may object to processing based on Art. 6 (1) (f) GDPR (Art. 21 GDPR). To do so, simply email the address above.
 
-You also have the right to lodge a complaint with a data protection supervisory authority (Art. 77 GDPR), for example the State Commissioner for Data Protection and Freedom of Information of the Free Hanseatic City of Bremen.
+You also have the right to lodge a complaint with a data protection supervisory authority (Art. 77 GDPR), for example the State Commissioner for Data Protection and Freedom of Information of the Free Hanseatic City of Bremen (https://www.datenschutz.bremen.de).
 
 ## 9. Encryption
 

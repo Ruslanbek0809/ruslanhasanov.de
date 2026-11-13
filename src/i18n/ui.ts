@@ -30,7 +30,7 @@ export interface UiStrings {
     highlight: string;
     readMore: string;
   };
-  legal: { draftTitle: string; draftBody: string; updated: string };
+  legal: { updated: string };
   notFound: {
     title: string;
     description: string;
@@ -72,8 +72,6 @@ export const ui: Record<Locale, UiStrings> = {
       readMore: 'Read case study',
     },
     legal: {
-      draftTitle: 'DRAFT, not yet reviewed',
-      draftBody: 'This text is a draft and has not been legally reviewed. It is not yet valid.',
       updated: 'Last updated',
     },
     notFound: {
@@ -118,8 +116,6 @@ export const ui: Record<Locale, UiStrings> = {
       readMore: 'Fallstudie lesen',
     },
     legal: {
-      draftTitle: 'ENTWURF, noch nicht geprüft',
-      draftBody: 'Dieser Text ist ein Entwurf und wurde noch nicht rechtlich geprüft. Er ist noch nicht gültig.',
       updated: 'Stand',
     },
     notFound: {

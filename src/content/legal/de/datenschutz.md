@@ -21,7 +21,7 @@ Diese Website ist eine statische Portfolio-Seite. Sie setzt keine Cookies, nutzt
 
 ## 3. Hosting und Server-Logfiles
 
-Diese Website wird über Cloudflare ausgeliefert. Anbieter ist die Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA.
+Diese Website wird bei Cloudflare (Cloudflare Workers) gehostet; die Domain nutzt DNS- und Proxy-Dienste von Cloudflare. Anbieter ist die Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA.
 
 Bei jedem Aufruf übermittelt Ihr Browser automatisch Daten, die Cloudflare verarbeitet und in Server-Logfiles speichern kann:
 
@@ -33,7 +33,7 @@ Bei jedem Aufruf übermittelt Ihr Browser automatisch Daten, die Cloudflare vera
 
 Zweck der Verarbeitung ist die Auslieferung der Website sowie die Gewährleistung ihrer Sicherheit und Stabilität, etwa die Abwehr von Angriffen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Mein berechtigtes Interesse liegt in einer sicheren und zuverlässigen Bereitstellung der Website. Ich werte diese Daten nicht aus und führe sie nicht mit anderen Daten zusammen. Cloudflare speichert sie nach eigenen Vorgaben nur so lange, wie es für diese Zwecke erforderlich ist.
 
-Mit Cloudflare besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO. Cloudflare kann Daten auch in den USA verarbeiten. Cloudflare ist unter dem EU-US Data Privacy Framework zertifiziert; die Übermittlung stützt sich auf den Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO). Weitere Informationen: [Datenschutzerklärung von Cloudflare](https://www.cloudflare.com/privacypolicy/).
+Für die Verarbeitung in meinem Auftrag gilt der Auftragsverarbeitungsvertrag von Cloudflare (Customer Data Processing Addendum), der Bestandteil der Nutzungsbedingungen ist (Art. 28 DSGVO). Cloudflare kann Daten auch in den USA verarbeiten. Cloudflare ist unter dem EU-US Data Privacy Framework zertifiziert; die Übermittlung stützt sich auf den Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO). Entfällt die Zertifizierung, stützt sich Cloudflare auf die EU-Standardvertragsklauseln (Art. 46 DSGVO). Weitere Informationen: [Datenschutzerklärung von Cloudflare](https://www.cloudflare.com/privacypolicy/).
 
 ## 4. Keine Cookies, kein Tracking
 
@@ -57,7 +57,7 @@ Diese Website verlinkt auf meine Profile bei GitHub und LinkedIn. Dabei werden e
 
 Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO) und Datenübertragbarkeit (Art. 20 DSGVO). Gegen eine Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO können Sie Widerspruch einlegen (Art. 21 DSGVO). Schreiben Sie dazu einfach eine E-Mail an die oben genannte Adresse.
 
-Außerdem können Sie sich bei einer Datenschutz-Aufsichtsbehörde beschweren (Art. 77 DSGVO), zum Beispiel bei der Landesbeauftragten für Datenschutz und Informationsfreiheit der Freien Hansestadt Bremen.
+Außerdem können Sie sich bei einer Datenschutz-Aufsichtsbehörde beschweren (Art. 77 DSGVO), zum Beispiel beim Landesbeauftragten für Datenschutz und Informationsfreiheit der Freien Hansestadt Bremen (https://www.datenschutz.bremen.de).
 
 ## 9. Verschlüsselung
 

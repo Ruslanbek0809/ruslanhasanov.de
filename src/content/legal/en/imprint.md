@@ -28,7 +28,7 @@ This is a private, non-commercial portfolio website. It presents my professional
 
 ## Liability for content
 
-I create the content of this website with care. I cannot, however, guarantee that it is correct, complete and up to date. Under § 7 (1) DDG I am responsible for my own content in accordance with the general laws.
+I create the content of this website with care. I cannot, however, guarantee that it is correct, complete and up to date. I am responsible for my own content on these pages under the general laws.
 
 ## Liability for links
 
