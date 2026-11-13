@@ -22,8 +22,8 @@ export const site = {
   ogImage: '/og.png',
 
   /**
-   * CV downloads, served from public/cv/. The PDFs there are web copies without street address,
-   * phone, date of birth and signature. While a value is null, no button for that language is rendered.
+   * CV downloads, served from public/cv/. The PDFs there are web copies without street address
+   * and date of birth. While a value is null, no button for that language is rendered.
    */
   cv: {
     en: '/cv/ruslan-hasanov-cv-en.pdf',

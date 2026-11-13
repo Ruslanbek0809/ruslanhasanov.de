@@ -14,6 +14,7 @@ Deutschland
 
 ## Kontakt
 
+Telefon: [+49 1520 4857973](tel:+4915204857973)<br>
 E-Mail: [ruslanbek0809@gmail.com](mailto:ruslanbek0809@gmail.com)
 
 ## Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
