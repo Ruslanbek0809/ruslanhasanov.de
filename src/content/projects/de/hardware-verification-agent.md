@@ -7,9 +7,9 @@ description: "Fallstudie Gruppenprojekt: ein Python-LLM-Agent (LangGraph, Tool U
 period: 04/2026 – 08/2026
 context: "TU Ilmenau, Team aus 3 Personen. Ich habe an allen Teilen des Agenten mitgearbeitet: Entwurf, Implementierung und Evaluation."
 badge: { label: Team aus 3, tone: neutral }
-summary: "Python-LLM-Agent (LangGraph, Tool Use), der SystemVerilog-Testbenches schreibt. Drei Prüf-Subagenten entscheiden per Mehrheitsvotum. Bewertet mit Mutation Testing auf VerilogEval-Designs."
+summary: "Python-LLM-Agent (LangGraph, Tool Use), der SystemVerilog-Testbenches schreibt. Drei Prüf-Subagenten entscheiden per Mehrheitsvotum. Wir haben gemessen, wie viele eingebaute Fehler (Mutanten) die Testbenches auf VerilogEval-Designs finden."
 tags: [Python, LangGraph, SystemVerilog]
-highlight: "Drei Prüfer stimmen ab, statt einem Modell zu vertrauen. Mutation Testing bewertet das Ergebnis."
+highlight: "Drei Prüfer stimmen ab, damit das Ergebnis nicht von einem einzigen Modell abhängt. Mutation Testing misst, wie viele eingebaute Fehler die Testbenches finden."
 stack: [Python, LangGraph, SystemVerilog, VerilogEval, Mutation Testing]
 links:
   - { label: hw-verif-agent auf GitHub, href: "https://github.com/Ruslanbek0809/hw-verif-agent" }
@@ -17,16 +17,15 @@ links:
 
 ## Problem
 
-Die Hardware-Verifikation braucht SystemVerilog-Testbenches. Wir haben einen LLM-Agenten gebaut, der sie schreibt, und einen Weg, seine Ausgabe zu prüfen, ohne einem einzelnen Modell zu vertrauen.
+Bei der Hardware-Verifikation wird der Entwurf einer digitalen Schaltung gegen seine Spezifikation getestet. Dafür schreibt man Testbenches in SystemVerilog. Eine Testbench ist Code, der den Entwurf mit Testeingaben ausführt und die Ausgaben prüft. Wir haben einen LLM-Agenten gebaut, der diese Testbenches schreibt. Wir wollten seine Ausgabe prüfen, ohne einem einzelnen Modell zu vertrauen.
 
 ## Vorgehen
 
-- Python-Agent mit LangGraph und Tool Use schreibt die Testbenches.
-- Drei Prüf-Subagenten bewerten die Ausgabe und entscheiden per Mehrheitsvotum.
-- Evaluation auf VerilogEval-Designs mit Mutation Testing.
-- Team aus 3 Personen. Mein Anteil: Entwurf, Implementierung, Evaluation.
+- Wir haben den Agenten in Python mit LangGraph geschrieben. Der Agent kann Werkzeuge aufrufen (Tool Use).
+- Drei Prüf-Subagenten bewerten jede Testbench und entscheiden per Mehrheitsvotum.
+- Wir haben den Agenten auf VerilogEval-Designs mit Mutation Testing getestet. Dabei baut man kleine Fehler (Mutanten) in einen Entwurf ein. Eine gute Testbench findet sie.
+- Wir waren ein Team aus 3 Personen. Ich habe an Entwurf, Implementierung und Evaluation mitgearbeitet.
 
 ## Ergebnisse
 
-- Ein funktionierender Agent, der SystemVerilog-Testbenches schreibt.
-- 3 Prüfer, Mehrheitsvotum, bewertet mit Mutation Testing auf VerilogEval.
+Das Ergebnis ist ein funktionierender Agent, der SystemVerilog-Testbenches schreibt. Drei Prüfer entscheiden per Mehrheitsvotum. Mutation Testing auf VerilogEval-Designs misst, wie gut die Testbenches sind.

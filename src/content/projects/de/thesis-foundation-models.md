@@ -8,34 +8,35 @@ description: "Fallstudie Masterarbeit: sechs vortrainierte Foundation Models fü
 period: 09/2026 – 03/2027
 context: TU Ilmenau, Fachgebiet Datenbanken und Informationssysteme (Databases and Information Systems Group). Einzelarbeit. Noch keine Note.
 badge: { label: In Arbeit, tone: progress }
-summary: "Sechs vortrainierte Zeitreihenmodelle gegen trainierte Baselines auf echten Sensordaten. Vorläufiger Pilot, Werte können sich ändern: Chronos-2 senkt den 24-h-Fehler um rund 29 %."
+summary: "Ich vergleiche sechs vortrainierte Zeitreihenmodelle mit trainierten Baselines auf echten Sensordaten. Im vorläufigen Pilot senkte Chronos-2 den 24-h-Fehler um rund 29 %. Die Werte können sich noch ändern."
 tags: [Python, PyTorch, Chronos-2, FastAPI, Docker, HPC]
 figures:
   - { label: Vortrainierte Modelle, value: "6" }
   - { label: Rollierende Prognosen, value: "1.000+ / Modell" }
   - { label: Rechenleistung, value: "4× A100" }
   - { label: Antwortzeit des Dienstes, value: "0,5–1,7 s" }
-highlight: "Meine eigenen Unsicherheitsschätzungen waren zu eng. Ich habe sie korrigiert."
+highlight: "Meine ersten 80-%-Intervalle enthielten nur 70–74 % der echten Werte. Nach der Rekalibrierung waren es 80 %."
 stack: [Python, PyTorch, Chronos-2, TimesFM-2.5, Moirai-2, DeepAR, PatchTST, FastAPI, Docker, Linux, HPC, SSH]
 links: []
 ---
 
 ## Problem
 
-Vortrainierte Foundation Models versprechen Prognosen ohne aufgabenspezifisches Training. Echte Sensordaten einer Stadt haben Lücken, Ausfälle und kurze Historien. Ich prüfe, ob die Modelle dort bestehen und ob sie auf denselben Daten trainierte Modelle schlagen.
+Ein Foundation Model ist ein großes Modell, das auf vielen Datensätzen vortrainiert ist. Es kann eine neue Zeitreihe ohne eigenes Training prognostizieren. Das heißt Zero-Shot-Prognose. Echte Sensordaten einer Stadt haben Lücken, Ausfälle und kurze Historien. Ich prüfe, ob die Modelle mit diesen Daten zurechtkommen und ob sie Modelle schlagen, die ich auf denselben Daten trainiere.
 
 ## Vorgehen
 
-- Sechs vortrainierte Modelle gegen statistische, Boosting- und Deep-Learning-Baselines, Zero-Shot und feinabgestimmt.
-- Quantilsprognosen, bewertet mit Quantile Loss und Abdeckung des 80-%-Intervalls.
-- Stresstests mit Lücken und Ausfällen: über 1.000 rollierende Prognosen pro Modell.
-- Diebold-Mariano-Tests mit Holm-Korrektur, Protokoll vor dem bestätigenden Test eingefroren.
+Ich vergleiche sechs vortrainierte Modelle, zum Beispiel Chronos-2 und TimesFM-2.5, mit drei Gruppen trainierter Baselines: statistische Modelle, Boosting und Deep Learning. Jedes vortrainierte Modell läuft zero-shot und feinabgestimmt (auf den Sensordaten weitertrainiert).
+
+- Jedes Modell liefert Quantilsprognosen: einen Bereich wahrscheinlicher Werte statt einer einzelnen Zahl. Ich bewerte sie mit dem Quantile Loss und mit der Abdeckung des 80-%-Intervalls (dem Anteil echter Werte im Intervall).
+- Stresstests decken Lücken und Ausfälle in den Daten ab. Jedes Modell erstellt über 1.000 rollierende Prognosen. Jede Prognose beginnt an einem späteren Zeitpunkt. Die Läufe nutzen 4× NVIDIA A100.
+- Diebold-Mariano-Tests zeigen, ob sich zwei Modelle in der Genauigkeit unterscheiden. Die Holm-Korrektur gleicht aus, dass ich viele Tests gleichzeitig durchführe. Das Testprotokoll habe ich vor dem bestätigenden Test festgelegt.
 
 ## Ergebnisse
 
-> Vorläufige Pilotergebnisse; die Arbeit ist in Bearbeitung, die Werte können sich noch ändern.
+> Das sind vorläufige Pilotergebnisse. Die Arbeit läuft noch, und die Werte können sich ändern.
 
-- Alle sechs schlagen die saisonale Naiv-Referenz: 30 von 30 Tests.
-- Chronos-2: 24-h-Fehler um 29 % gesenkt. Beste trainierte Baseline: 18 %.
-- Abdeckung der 80-%-Intervalle: 0,70–0,74 vor der Rekalibrierung, 0,80 danach.
-- FastAPI-Dienst: Prognose und 80-%-Band in 0,5–1,7 s.
+- Alle sechs vortrainierten Modelle schlagen die saisonal-naive Referenz in 30 von 30 Tests. Diese einfache Referenz wiederholt den letzten saisonalen Zyklus.
+- Chronos-2 senkte den 24-h-Fehler um 29 %. Die beste trainierte Baseline senkte ihn um 18 %.
+- Vor der Rekalibrierung enthielten die 80-%-Intervalle 70–74 % der echten Werte. Danach waren es 80 %.
+- Ein FastAPI-Dienst liefert eine Prognose mit 80-%-Band in 0,5–1,7 s.

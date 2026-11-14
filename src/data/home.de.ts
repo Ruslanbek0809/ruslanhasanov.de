@@ -4,14 +4,14 @@ const home: HomeContent = {
   seo: {
     title: 'Ruslan Hasanov | KI-/ML-Ingenieur, Zeitreihen & LLM-Agenten',
     description:
-      'KI-/ML-Ingenieur und M.Sc.-Student an der TU Ilmenau. Zeitreihenmodelle, LLM-Agenten, über 4 Jahre Flutter-Apps. Bremerhaven.',
+      'KI-/ML-Ingenieur und M.Sc.-Student an der TU Ilmenau, wohnhaft in Bremerhaven. Ich arbeite an Zeitreihenprognosen und LLM-Agenten, davor vier Jahre Flutter-Apps.',
   },
 
   hero: {
     name: 'Ruslan Hasanov',
     role: 'M.Sc.-Student an der TU Ilmenau · DAAD-Stipendiat',
     pitch:
-      'KI-/ML-Ingenieur, der liefert. Zeitreihenmodelle und LLM-Agenten.',
+      'KI-/ML-Ingenieur, der liefert. Ich arbeite an Zeitreihenprognosen und LLM-Agenten.',
     availability: 'Ab sofort verfügbar',
     buttons: { work: 'Projekte ansehen', contact: 'Kontakt aufnehmen' },
     facts: {
@@ -50,7 +50,7 @@ const home: HomeContent = {
     eyebrow: 'kennzahlen',
     heading: 'Kennzahlen',
     items: [
-      { index: '[Modelle]', value: '6', caption: 'Foundation Models in der Masterarbeit' },
+      { index: '[Modelle]', value: '6', caption: 'vortrainierte Zeitreihenmodelle in der Masterarbeit' },
       {
         index: '[Prognosefehler]',
         value: '29 %',
@@ -67,7 +67,7 @@ const home: HomeContent = {
   shipped: {
     eyebrow: 'software',
     heading: 'Produktive Software',
-    intro: 'Vier Jahre mobile Apps, meist mit Flutter.',
+    intro: 'Vor dem Master habe ich vier Jahre lang mobile Apps entwickelt, meist mit Flutter.',
     jobs: [
       {
         name: 'Flipgoo',
@@ -137,19 +137,19 @@ const home: HomeContent = {
         name: 'sensbee_nvp',
         url: 'https://github.com/Ruslanbek0809/sensbee_nvp',
         lang: 'Python',
-        text: 'FastAPI-Dienst für den nächsten Wert von Smart-City-Sensordaten.',
+        text: 'FastAPI-Dienst, der den nächsten Wert von Smart-City-Sensordaten vorhersagt.',
       },
       {
         name: 'hw-verif-agent',
         url: 'https://github.com/Ruslanbek0809/hw-verif-agent',
         lang: 'SystemVerilog, Python',
-        text: 'Python-LLM-Agent für die Hardware-Verifikation.',
+        text: 'Python-LLM-Agent, der SystemVerilog-Testbenches schreibt.',
       },
       {
         name: 'img_harmnztn_impls',
         url: 'https://github.com/Ruslanbek0809/img_harmnztn_impls',
         lang: 'Python',
-        text: 'Klassische Verfahren zur Bildharmonisierung.',
+        text: 'Umsetzungen klassischer Verfahren zur Bildharmonisierung.',
       },
     ],
   },
@@ -158,8 +158,9 @@ const home: HomeContent = {
     eyebrow: 'über mich',
     heading: 'Über mich',
     paragraphs: [
-      'Ich studiere Computer and Systems Engineering (M.Sc.) an der TU Ilmenau mit DAAD-Stipendium und lebe in Bremerhaven. Alle Module sind abgeschlossen: 90 CP, Durchschnitt 2,1.',
-      'In der Masterarbeit teste ich sechs vortrainierte Zeitreihenmodelle auf echten Sensordaten einer Smart City. Davor habe ich zu LLM-Prognosen geforscht, an einem LLM-Agenten für Hardware-Verifikation gearbeitet und vier Jahre Apps entwickelt.',
+      'Ich bin Ruslan. Vier Jahre lang habe ich mobile Apps für Firmen in Turkmenistan und Ungarn entwickelt. Dann bin ich mit einem DAAD-Vollstipendium für den Master nach Deutschland gekommen. Heute arbeite ich an maschinellem Lernen, vor allem an Prognosen und LLM-Agenten.',
+      'Ich studiere Computer and Systems Engineering an der TU Ilmenau und wohne in Bremerhaven. Alle Module sind abgeschlossen (90 CP, Durchschnitt 2,1). Die Masterarbeit schreibe ich bis März 2027.',
+      'Im Forschungsprojekt habe ich getestet, ob allgemeine LLMs Sensordaten vorhersagen können. Zuverlässig ging das nicht. So kam ich zum Thema meiner Masterarbeit: vortrainierte Modelle, die nur für Zeitreihen gebaut sind, getestet auf echten Sensordaten einer Smart City.',
     ],
     now: {
       label: 'Aktuell',
@@ -322,7 +323,7 @@ const home: HomeContent = {
     eyebrow: 'kontakt',
     heading: 'Kontakt aufnehmen',
     invitation:
-      'Ab sofort verfügbar, Teilzeit oder Vollzeit, remote oder im Raum Bremerhaven–Bremen. Schreiben Sie mir zu KI/ML, Prognosen oder LLM-Agenten.',
+      'Ich bin ab sofort verfügbar, in Teil- oder Vollzeit, remote oder im Raum Bremerhaven–Bremen. Wenn Sie an Prognosen, LLM-Agenten oder anderen ML-Themen arbeiten, freue ich mich über Ihre Nachricht.',
     note: 'Mein Deutsch ist A2, B1 ist in Vorbereitung. Gespräche laufen derzeit besser auf Englisch.',
   },
 

@@ -4,14 +4,14 @@ const home: HomeContent = {
   seo: {
     title: 'Ruslan Hasanov | AI/ML Engineer, Time Series & LLM Agents',
     description:
-      'AI/ML engineer and M.Sc. student at TU Ilmenau. Time-series models, LLM agents, 4+ years of Flutter apps. Bremerhaven.',
+      'AI/ML engineer and M.Sc. student at TU Ilmenau, based in Bremerhaven. I work on time-series forecasting and LLM agents, after four years of building Flutter apps.',
   },
 
   hero: {
     name: 'Ruslan Hasanov',
     role: 'M.Sc. student at TU Ilmenau · DAAD scholar',
     pitch:
-      'AI/ML engineer who ships. Time-series models and LLM agents.',
+      'AI/ML engineer who ships. I work on time-series forecasting and LLM agents.',
     availability: 'Available now',
     buttons: { work: 'View work', contact: 'Get in touch' },
     facts: {
@@ -50,7 +50,7 @@ const home: HomeContent = {
     eyebrow: 'highlights',
     heading: 'Highlights',
     items: [
-      { index: '[models]', value: '6', caption: 'foundation models in my thesis' },
+      { index: '[models]', value: '6', caption: 'pretrained time-series models in my thesis' },
       {
         index: '[forecast error]',
         value: '29 %',
@@ -67,7 +67,7 @@ const home: HomeContent = {
   shipped: {
     eyebrow: 'shipped',
     heading: 'Shipped software',
-    intro: 'Four years of mobile apps, mostly Flutter.',
+    intro: 'Before my master’s, I spent four years building mobile apps, mostly in Flutter.',
     jobs: [
       {
         name: 'Flipgoo',
@@ -137,19 +137,19 @@ const home: HomeContent = {
         name: 'sensbee_nvp',
         url: 'https://github.com/Ruslanbek0809/sensbee_nvp',
         lang: 'Python',
-        text: 'FastAPI service predicting the next value of smart-city sensor data.',
+        text: 'FastAPI service that predicts the next value of smart-city sensor data.',
       },
       {
         name: 'hw-verif-agent',
         url: 'https://github.com/Ruslanbek0809/hw-verif-agent',
         lang: 'SystemVerilog, Python',
-        text: 'Python LLM agent for hardware verification.',
+        text: 'Python LLM agent that writes SystemVerilog testbenches.',
       },
       {
         name: 'img_harmnztn_impls',
         url: 'https://github.com/Ruslanbek0809/img_harmnztn_impls',
         lang: 'Python',
-        text: 'Classic image harmonization methods.',
+        text: 'Implementations of classic image harmonization methods.',
       },
     ],
   },
@@ -158,8 +158,9 @@ const home: HomeContent = {
     eyebrow: 'about',
     heading: 'About',
     paragraphs: [
-      'I study Computer and Systems Engineering (M.Sc.) at TU Ilmenau on a DAAD scholarship and live in Bremerhaven. Coursework is done: 90 CP, average grade 2.1.',
-      'My thesis tests six pretrained time-series models on real smart-city sensor data. Before that I worked on LLM forecasting and on an LLM agent for hardware verification, and built mobile apps for four years.',
+      'I am Ruslan. For four years I built mobile apps for companies in Turkmenistan and Hungary. Then I came to Germany for a master’s on a full DAAD scholarship, and now I work on machine learning, mostly forecasting and LLM agents.',
+      'I study Computer and Systems Engineering at TU Ilmenau and live in Bremerhaven. My coursework is done (90 CP, average grade 2.1), and I am writing my thesis until March 2027.',
+      'In my research project I tested if general-purpose LLMs can forecast sensor data. They could not do it reliably. That is how I got to my thesis topic: pretrained models built only for time series, tested on real smart-city sensor data.',
     ],
     now: {
       label: 'Currently',
@@ -322,7 +323,7 @@ const home: HomeContent = {
     eyebrow: 'contact',
     heading: 'Get in touch',
     invitation:
-      'Available now, part-time or full-time, remote or in the Bremerhaven–Bremen area. Write about AI/ML, forecasting or LLM agents.',
+      'I am available now, part-time or full-time, remote or in the Bremerhaven–Bremen area. If you work on forecasting, LLM agents or ML in general, I would be glad to hear from you.',
   },
 
   person: {
